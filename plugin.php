@@ -90,16 +90,22 @@ $adminSubMenu = new SubMenu([
 $adminPanel = new Page([
     'title' => 'Plugin Name - Welcome to the settings page',
     'role' => 'manage_options',
-    'callback' => function() { echo '<h1>Hello World !</h1>'; }
+    'callback' => function() {
+        $ken = App\Member::first();
+        $location = $ken->location;
+        var_dump($location); 
+     }
 ]);
 
-//$adminMenu->setPage($adminPanel)->hook();
-//$adminSubMenu->setPage($adminPanel)->hook();
+$adminMenu->setPage($adminPanel)->hook();
+$adminSubMenu->setPage($adminPanel)->hook();
 
 $config = @require_once dirname(__FILE__) . '/app/config/config.php';
 
 $app = new \Plugino\Application($config);
 $app->run();
+
+
 
 
 /**
