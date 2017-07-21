@@ -1,0 +1,12 @@
+vendor/
+composer.lock
+.php_cs.cache
+composer.phar
+package.tar
+/packages.json
+coverage
+/.phpunit
+.idea/
+.sass-cache/
+_includes/
+_site/

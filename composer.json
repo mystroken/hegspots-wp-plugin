@@ -1,0 +1,23 @@
+{
+    "name": "plugino/framework",
+    "license": "proprietary",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "": "src/",
+            "App\\": "app/",
+            "Plugino\\": "plugino/src/"
+        }
+    },
+    "require": {
+        "wordpruss/wordpruss": "0.x-dev",
+        "tareq1988/wp-eloquent": "dev-master"
+    },
+    "authors": [
+        {
+            "name": "Mystro Ken",
+            "email": "mystroken@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev"
+}
