@@ -10,6 +10,7 @@
         }
     },
     "require": {
+        "vitaminframework/framework": "dev-master",
         "wordpruss/wordpruss": "0.x-dev",
         "tareq1988/wp-eloquent": "dev-master"
     },

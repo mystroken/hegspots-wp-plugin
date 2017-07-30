@@ -1,24 +1,24 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use \WeDevs\ORM\Eloquent\Model;
 
-class Location extends Model
+class TypePlace extends Model
 {
     /**
      * The database table used by the model.
      *
      * @var string
      */
-    protected $table = 'hegspots_locations';
+    protected $table = 'hegspots_types_place';
 
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
-    protected $fillable = ['slug', 'town', 'country'];
+    protected $fillable = ['slug', 'name', 'description', 'photo'];
 
     /**
      * Disable created_at and update_at columns, unless you have those.
@@ -42,15 +42,9 @@ class Location extends Model
     protected $guarded = [ 'ID' ];
 
 
-    public function members()
-    {
-        return $this->hasMany(Member::class, 'location_id');
-    }
-
-
     public function places()
     {
-        return $this->hasMany(Place::class, 'location_id');
+        return $this->hasMany(Place::class, 'type_place_id');
     }
 
     /**

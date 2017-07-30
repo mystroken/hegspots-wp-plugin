@@ -1,24 +1,24 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use \WeDevs\ORM\Eloquent\Model;
 
-class Profile extends Model
+class Location extends Model
 {
     /**
      * The database table used by the model.
      *
      * @var string
      */
-    protected $table = 'hegspots_profiles';
+    protected $table = 'hegspots_locations';
 
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
-    protected $fillable = ['photo', 'watch', 'bag', 'book', 'grooming', 'style_icon', 'brand'];
+    protected $fillable = ['slug', 'town', 'country'];
 
     /**
      * Disable created_at and update_at columns, unless you have those.
@@ -42,9 +42,15 @@ class Profile extends Model
     protected $guarded = [ 'ID' ];
 
 
-    public function profile()
+    public function members()
     {
-        return $this->hasOne(Member::class, 'profile_id');
+        return $this->hasMany(Member::class, 'location_id');
+    }
+
+
+    public function places()
+    {
+        return $this->hasMany(Place::class, 'location_id');
     }
 
     /**

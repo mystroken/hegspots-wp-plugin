@@ -1,29 +1,29 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use \WeDevs\ORM\Eloquent\Model;
 
-class Activity extends Model
+class Place extends Model
 {
     /**
      * The database table used by the model.
      *
      * @var string
      */
-    protected $table = 'hegspots_activities';
+    protected $table = 'hegspots_places';
 
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
-    protected $fillable = ['slug', 'name'];
+    protected $fillable = ['slug', 'name', 'description', 'photo', 'instagram'];
 
     /**
      * Disable created_at and update_at columns, unless you have those.
      */
-    public $timestamps = false;
+    public $timestamps = true;
 
     /** Everything below this is best done in an abstract class that custom tables extend */
 
@@ -42,9 +42,24 @@ class Activity extends Model
     protected $guarded = [ 'ID' ];
 
 
-    public function members()
+    public function location()
     {
-        return $this->belongsToMany(Member::class, $wpdb->prefix.'hegspots_members_activities', 'activity_id', 'member_id');
+        return $this->belongsTo(Location::class);
+    }
+
+    public function mapPosition()
+    {
+        return $this->belongsTo(MapPosition::class);
+    }
+
+    public function type()
+    {
+        return $this->belongsTo(TypePlace::class, 'type_place_id');
+    }
+
+    public function recommandators()
+    {
+        return $this->belongsToMany(Member::class, $wpdb->prefix.'hegspots_members_recommandations', 'place_id', 'member_id');
     }
 
     /**

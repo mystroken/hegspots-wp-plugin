@@ -1,24 +1,24 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use \WeDevs\ORM\Eloquent\Model;
 
-class MapPosition extends Model
+class Activity extends Model
 {
     /**
      * The database table used by the model.
      *
      * @var string
      */
-    protected $table = 'hegspots_map_positions';
+    protected $table = 'hegspots_activities';
 
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
-    protected $fillable = ['name', 'address', 'lat', 'lng'];
+    protected $fillable = ['slug', 'name'];
 
     /**
      * Disable created_at and update_at columns, unless you have those.
@@ -42,9 +42,9 @@ class MapPosition extends Model
     protected $guarded = [ 'ID' ];
 
 
-    public function place()
+    public function members()
     {
-        return $this->hasOne(Place::class, 'map_position_id');
+        return $this->belongsToMany(Member::class, $wpdb->prefix.'hegspots_members_activities', 'activity_id', 'member_id');
     }
 
     /**

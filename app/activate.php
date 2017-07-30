@@ -12,6 +12,7 @@ $wpdb->query("CREATE TABLE IF NOT EXISTS {$wpdb->prefix}hegspots_activities (
 ) ENGINE=InnoDB {$charset_collate};");
 
 
+
 $wpdb->query("CREATE TABLE IF NOT EXISTS {$wpdb->prefix}hegspots_locations (
   ID int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
   slug varchar(255) NOT NULL,
@@ -164,3 +165,8 @@ $wpdb->query("ALTER TABLE {$wpdb->prefix}hegspots_places
   ADD CONSTRAINT {$wpdb->prefix}hegspots_places_map_position_id_foreign FOREIGN KEY (map_position_id) REFERENCES {$wpdb->prefix}hegspots_map_positions (ID),
   ADD CONSTRAINT {$wpdb->prefix}hegspots_places_type_place_id_foreign FOREIGN KEY (type_place_id) REFERENCES {$wpdb->prefix}hegspots_types_place (ID);
 ");
+
+/**
+ * Attach the plugin uninstall hooks
+ */
+register_uninstall_hook(__FILE__, function() { include_once dirname(__FILE__) . '/app/uninstall.php'; });

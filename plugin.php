@@ -27,11 +27,14 @@ License:
 if ( !defined( 'ABSPATH' ) ) exit;
 
 
+
+$config = @require_once dirname(__FILE__) . '/config/config.php';
+require __DIR__ . '/vendor/autoload.php';
+
+
 use \WordPruss\Admin\Page\Menu;
 use \WordPruss\Admin\Page\SubMenu;
 use \WordPruss\Admin\Page\Page;
-
-require __DIR__ . '/vendor/autoload.php';
 
 //$shortcode = new \WordPruss\Shortcode('test');
 //$shortcode->handle(function($content, $attributes){
@@ -91,7 +94,7 @@ $adminPanel = new Page([
     'title' => 'Plugin Name - Welcome to the settings page',
     'role' => 'manage_options',
     'callback' => function() {
-        $ken = App\Member::first();
+        $ken = \App\Models\Member::first();
         $location = $ken->location;
         var_dump($location); 
      }
@@ -100,12 +103,15 @@ $adminPanel = new Page([
 $adminMenu->setPage($adminPanel)->hook();
 $adminSubMenu->setPage($adminPanel)->hook();
 
-$config = @require_once dirname(__FILE__) . '/app/config/config.php';
-
 $app = new \Plugino\Application($config);
 $app->run();
 
 
+/**
+ * Load Translation Domain 
+ * Adds i18 Language Support
+ */
+load_plugin_textdomain('plugino', false, __DIR__ . '/resources/languages/');
 
 
 /**
@@ -113,18 +119,17 @@ $app->run();
  *
  * Do not remove any of these following lines
  */
-$activation_file   = dirname(__FILE__) . '/activate.php';
-$deactivation_file = dirname(__FILE__) . '/deactivate.php';
-$uninstall_file    = dirname(__FILE__) . '/uninstall.php';
+$activation_file   = dirname(__FILE__) . '/app/activate.php';
+$deactivation_file = dirname(__FILE__) . '/app/deactivate.php';
+$uninstall_file    = dirname(__FILE__) . '/app/uninstall.php';
 
 if(
 	   !file_exists( $activation_file )
 	OR !file_exists( $deactivation_file )
 	OR !file_exists( $uninstall_file )
 ){
-	throw new Exception("Please check that activate.php, deactivate.php and uninstall.php files are present and well written on the root directory of your plugin {$config['plugin_path']}");
+	throw new Exception("Please check that activate.php, deactivate.php and uninstall.php files are present and well written under the app directory of your plugin {$config['plugin_path']}");
 } else{
-	register_activation_hook(  __FILE__, function() { include_once dirname(__FILE__) . '/activate.php'; });
-	register_deactivation_hook(__FILE__, function() { include_once dirname(__FILE__) . '/deactivate.php'; });
-	//register_uninstall_hook(   __FILE__, function() { include_once dirname(__FILE__) . '/uninstall.php'; });
+	register_activation_hook(  __FILE__, function() { include_once dirname(__FILE__) . '/app/activate.php'; });
+	register_deactivation_hook(__FILE__, function() { include_once dirname(__FILE__) . '/app/deactivate.php'; });
 }

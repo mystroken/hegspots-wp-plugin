@@ -1,24 +1,24 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use \WeDevs\ORM\Eloquent\Model;
 
-class Place extends Model
+class Member extends Model
 {
     /**
      * The database table used by the model.
      *
      * @var string
      */
-    protected $table = 'hegspots_places';
+    protected $table = 'hegspots_members';
 
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
-    protected $fillable = ['slug', 'name', 'description', 'photo', 'instagram'];
+    protected $fillable = ['slug', 'name', 'instagram'];
 
     /**
      * Disable created_at and update_at columns, unless you have those.
@@ -47,19 +47,19 @@ class Place extends Model
         return $this->belongsTo(Location::class);
     }
 
-    public function mapPosition()
+    public function profile()
     {
-        return $this->belongsTo(MapPosition::class);
+        return $this->belongsTo(Profile::class);
     }
 
-    public function type()
+    public function activities()
     {
-        return $this->belongsTo(TypePlace::class, 'type_place_id');
+        return $this->belongsToMany(Activity::class, $wpdb->prefix.'hegspots_members_activities', 'member_id', 'activity_id');
     }
 
-    public function recommandators()
+    public function recommandedPlaces()
     {
-        return $this->belongsToMany(Member::class, $wpdb->prefix.'hegspots_members_recommandations', 'place_id', 'member_id');
+        return $this->belongsToMany(Place::class, $wpdb->prefix.'hegspots_members_recommandations', 'member_id', 'place_id');
     }
 
     /**
