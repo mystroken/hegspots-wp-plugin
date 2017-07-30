@@ -1,5 +1,5 @@
 {
-    "name": "plugino/framework",
+    "name": "vitaminframework/vitamin",
     "license": "proprietary",
     "type": "project",
     "autoload": {
@@ -10,9 +10,9 @@
         }
     },
     "require": {
-        "vitaminframework/framework": "dev-master",
         "wordpruss/wordpruss": "0.x-dev",
-        "tareq1988/wp-eloquent": "dev-master"
+        "tareq1988/wp-eloquent": "dev-master",
+        "vitaminframework/framework": "dev-master"
     },
     "authors": [
         {

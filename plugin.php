@@ -26,10 +26,43 @@ License:
 // Exit if accessed directly
 if ( !defined( 'ABSPATH' ) ) exit;
 
+/*
+|--------------------------------------------------------------------------
+| Register The Auto Loader
+|--------------------------------------------------------------------------
+|
+| Composer provides a convenient, automatically generated class loader for
+| our application. We just need to utilize it! We'll simply require it
+| into the script here so that we don't have to worry about manual
+| loading any of our classes later on. It feels great to relax.
+|
+*/
 
+require __DIR__.'/bootstrap/autoload.php';
 
-$config = @require_once dirname(__FILE__) . '/config/config.php';
-require __DIR__ . '/vendor/autoload.php';
+/*
+|------------------------------------------------------------------------
+| Load Translation Domain
+|------------------------------------------------------------------------
+|
+| Adds i18 Language Support
+*/
+
+load_plugin_textdomain('hegspots', false, __DIR__ . '/resources/languages/');
+
+/*
+|--------------------------------------------------------------------------
+| Turn On The Lights
+|--------------------------------------------------------------------------
+|
+| We need to 'vitaminate' the WordPress PHP development, so let us turn on the lights.
+| This bootstraps the framework and gets it ready for use, then it
+| will load up this application so that we can run it and send
+| the responses back to the browser and delight our users.
+|
+*/
+
+$app = require_once __DIR__.'/bootstrap/app.php';
 
 
 use \WordPruss\Admin\Page\Menu;
@@ -93,25 +126,16 @@ $adminSubMenu = new SubMenu([
 $adminPanel = new Page([
     'title' => 'Plugin Name - Welcome to the settings page',
     'role' => 'manage_options',
-    'callback' => function() {
+    'callback' => function() use ($app) {
         $ken = \App\Models\Member::first();
         $location = $ken->location;
-        var_dump($location); 
+        var_dump($location);
+        var_dump($app);
      }
 ]);
 
 $adminMenu->setPage($adminPanel)->hook();
 $adminSubMenu->setPage($adminPanel)->hook();
-
-$app = new \Plugino\Application($config);
-$app->run();
-
-
-/**
- * Load Translation Domain 
- * Adds i18 Language Support
- */
-load_plugin_textdomain('plugino', false, __DIR__ . '/resources/languages/');
 
 
 /**
@@ -132,4 +156,5 @@ if(
 } else{
 	register_activation_hook(  __FILE__, function() { include_once dirname(__FILE__) . '/app/activate.php'; });
 	register_deactivation_hook(__FILE__, function() { include_once dirname(__FILE__) . '/app/deactivate.php'; });
+    //register_uninstall_hook(__FILE__, function() { include_once dirname(__FILE__) . '/app/uninstall.php'; });
 }

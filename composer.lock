@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "244a8bb8fe4bab848ad81e41c867c55f",
+    "content-hash": "e25141a915c6180b3515b6582c0a7408",
     "packages": [
         {
             "name": "danielstjules/stringy",
@@ -64,33 +64,33 @@
         },
         {
             "name": "doctrine/inflector",
-            "version": "1.1.x-dev",
+            "version": "1.2.x-dev",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/inflector.git",
-                "reference": "90b2128806bfde671b6952ab8bea493942c1fdae"
+                "reference": "e11d84c6e018beedd929cff5220969a3c6d1d462"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/inflector/zipball/90b2128806bfde671b6952ab8bea493942c1fdae",
-                "reference": "90b2128806bfde671b6952ab8bea493942c1fdae",
+                "url": "https://api.github.com/repos/doctrine/inflector/zipball/e11d84c6e018beedd929cff5220969a3c6d1d462",
+                "reference": "e11d84c6e018beedd929cff5220969a3c6d1d462",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3.2"
+                "php": "^7.0"
             },
             "require-dev": {
-                "phpunit/phpunit": "4.*"
+                "phpunit/phpunit": "^6.2"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.1.x-dev"
+                    "dev-master": "1.2.x-dev"
                 }
             },
             "autoload": {
-                "psr-0": {
-                    "Doctrine\\Common\\Inflector\\": "lib/"
+                "psr-4": {
+                    "Doctrine\\Common\\Inflector\\": "lib/Doctrine/Common/Inflector"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -127,7 +127,7 @@
                 "singularize",
                 "string"
             ],
-            "time": "2015-11-06 14:35:42"
+            "time": "2017-07-22 12:18:28"
         },
         {
             "name": "illuminate/container",
@@ -594,17 +594,70 @@
             "time": "2017-05-07 05:32:57"
         },
         {
+            "name": "vitaminframework/framework",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/vitaminframework/framework.git",
+                "reference": "5a2cf64d0bf2c9c2b2b94efd7a4428a7fc5e2854"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/vitaminframework/framework/zipball/5a2cf64d0bf2c9c2b2b94efd7a4428a7fc5e2854",
+                "reference": "5a2cf64d0bf2c9c2b2b94efd7a4428a7fc5e2854",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/container": "5.0.*",
+                "php": ">=5.5.9"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "5.7"
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "src/Vitaminate/Foundation/helpers.php"
+                ],
+                "psr-4": {
+                    "Vitaminate\\": "src/Vitaminate/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Mystro Ken",
+                    "email": "mystroken@gmail.com",
+                    "homepage": "http://mystroken.cm",
+                    "role": "Lead Developer"
+                }
+            ],
+            "description": "The Core of Vitamin Framework, the PHP Framework for WordPress development.",
+            "homepage": "https://github.com/vitaminframework/framework",
+            "keywords": [
+                "framework",
+                "php",
+                "symfony",
+                "wordpress",
+                "wordpress-development"
+            ],
+            "time": "2017-07-30 06:07:00"
+        },
+        {
             "name": "wordpruss/wordpruss",
             "version": "0.x-dev",
             "source": {
                 "type": "git",
-                "url": "https://github.com/mystroken/wordpruss.git",
-                "reference": "2bba08c9389288081fcff96a6d0f9493791596a4"
+                "url": "https://github.com/CompanionsOfWP/wordpruss.git",
+                "reference": "b34ed27515206e5dcdc9db54eda568d89230eb9b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mystroken/wordpruss/zipball/2bba08c9389288081fcff96a6d0f9493791596a4",
-                "reference": "2bba08c9389288081fcff96a6d0f9493791596a4",
+                "url": "https://api.github.com/repos/CompanionsOfWP/wordpruss/zipball/b34ed27515206e5dcdc9db54eda568d89230eb9b",
+                "reference": "b34ed27515206e5dcdc9db54eda568d89230eb9b",
                 "shasum": ""
             },
             "require": {
@@ -632,14 +685,14 @@
                 }
             ],
             "description": "A reusable set of clean and beautified PHP classes that wrap WordPress functionalities.",
-            "homepage": "https://github.com/mystroken/wordpruss",
+            "homepage": "https://github.com/CompanionsOfWP/wordpruss",
             "keywords": [
                 "library",
                 "php",
                 "wordpress",
                 "wordpress-development"
             ],
-            "time": "2017-07-03 06:09:06"
+            "time": "2017-07-27 09:03:46"
         }
     ],
     "packages-dev": [],
@@ -647,7 +700,8 @@
     "minimum-stability": "dev",
     "stability-flags": {
         "wordpruss/wordpruss": 20,
-        "tareq1988/wp-eloquent": 20
+        "tareq1988/wp-eloquent": 20,
+        "vitaminframework/framework": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,
