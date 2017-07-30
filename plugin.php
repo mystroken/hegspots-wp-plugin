@@ -64,61 +64,22 @@ load_plugin_textdomain('hegspots', false, __DIR__ . '/resources/languages/');
 
 $app = require_once __DIR__.'/bootstrap/app.php';
 
-
 use \WordPruss\Admin\Page\Menu;
 use \WordPruss\Admin\Page\SubMenu;
 use \WordPruss\Admin\Page\Page;
 
-//$shortcode = new \WordPruss\Shortcode('test');
-//$shortcode->handle(function($content, $attributes){
-//	return '<strong>Here is a test!</strong>';
-//});
-//$shortcode->hook();
-
-Class TestShortcode {
-
-  protected $shortcode;
-
-  public function __construct(){
-    $this->shortcode = new \WordPruss\Shortcode('test', [
-      'defaultAttribute1' => 'value'
-    ]);
-  }
-
-  public function handleShortcode($attributes, $content){
-    
-    var_dump($attributes);
-
-    return 
-       '<input type="text" placeholder="First Name">'
-      .'<input type="text" placeholder="Last Name">'
-      .'<input type="text" placeholder="Email">'
-      .'<button>Register</button>'
-    ;
-  }
-
-  public function boot(){
-    $this->shortcode->handle([$this, 'handleShortcode']);
-    $this->shortcode->hook();
-  }
-
-}
-
-$testShortcode = new TestShortcode();
-//$testShortcode->boot();
-
-
-
 // Creates a new admin menu
 $adminMenu = new Menu([
-    'title' => 'My Plugin Name',
-    'slug' => 'my_plugin_name_menu'
+    'title' => __('HEG Spots', 'hegspots'),
+    'slug' => 'heg-spots-index.php',
+    'icon' => 'dashicons-location-alt',
+    'order' => 26.1993,
 ]);
 
 // Creating a new submenu
 $adminSubMenu = new SubMenu([
-    'title' => 'My Plugin Name',
-    'slug' => 'my_plugin_name_submenu',
+    'title' => __('Places', 'hegspots'),
+    'slug' => 'heg-spots-places.php',
     'parent_slug' => $adminMenu->getArgument('slug')//'plugins.php'
 ]);
 
@@ -127,11 +88,9 @@ $adminPanel = new Page([
     'title' => 'Plugin Name - Welcome to the settings page',
     'role' => 'manage_options',
     'callback' => function() use ($app) {
-        $ken = \App\Models\Member::first();
-        $location = $ken->location;
-        var_dump($location);
-        var_dump($app);
-     }
+      $defaultController = new \App\Http\Controllers\DefaultController(); 
+      return $defaultController->index();
+    }
 ]);
 
 $adminMenu->setPage($adminPanel)->hook();

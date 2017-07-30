@@ -1,2 +1,4 @@
  ☐ Check the translation domain loading (into plugin.php file)
  ☐ Set the attachment of uninstalling hook
+ ☐ Fix the using of illuminate container v 5.0.* (supposed to use ~5.1.0, Set wp-eloquent)
+ ☐ Set the View class to use with method.

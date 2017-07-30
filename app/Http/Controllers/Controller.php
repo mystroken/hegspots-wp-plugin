@@ -2,11 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Vitaminate\Http\Controller as BaseController;
 
-class Controller
-{
-
-	/**
-	 */
-	public function __construct(){}
-}
+abstract class Controller extends BaseController
+{}
