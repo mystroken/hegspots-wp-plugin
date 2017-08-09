@@ -88,6 +88,9 @@ $adminPanel = new Page([
     'title' => 'Plugin Name - Welcome to the settings page',
     'role' => 'manage_options',
     'callback' => function() use ($app) {
+        /**
+         * @vat \App\Http\Controllers\DefaultController
+         */
       $defaultController = new \App\Http\Controllers\DefaultController(); 
       return $defaultController->index();
     }

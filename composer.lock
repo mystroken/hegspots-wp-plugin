@@ -487,16 +487,16 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/translation.git",
-                "reference": "eca09e9af11fe317f313d2915e1573a01609fcb9"
+                "reference": "62bb068e004874bbe39624101e1aae70ca7c05cd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/translation/zipball/eca09e9af11fe317f313d2915e1573a01609fcb9",
-                "reference": "eca09e9af11fe317f313d2915e1573a01609fcb9",
+                "url": "https://api.github.com/repos/symfony/translation/zipball/62bb068e004874bbe39624101e1aae70ca7c05cd",
+                "reference": "62bb068e004874bbe39624101e1aae70ca7c05cd",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.5.9",
+                "php": "^5.5.9|>=7.0.8",
                 "symfony/polyfill-mbstring": "~1.0"
             },
             "conflict": {
@@ -546,7 +546,7 @@
             ],
             "description": "Symfony Translation Component",
             "homepage": "https://symfony.com",
-            "time": "2017-07-06 06:49:25"
+            "time": "2017-08-03 12:04:31"
         },
         {
             "name": "tareq1988/wp-eloquent",
@@ -599,12 +599,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/vitaminframework/framework.git",
-                "reference": "7540beae1c67b423d0ec963f0c2c07158b7daeba"
+                "reference": "e8e6036004fa69b308db521caa2fdbfea8cf77dc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/vitaminframework/framework/zipball/7540beae1c67b423d0ec963f0c2c07158b7daeba",
-                "reference": "7540beae1c67b423d0ec963f0c2c07158b7daeba",
+                "url": "https://api.github.com/repos/vitaminframework/framework/zipball/e8e6036004fa69b308db521caa2fdbfea8cf77dc",
+                "reference": "e8e6036004fa69b308db521caa2fdbfea8cf77dc",
                 "shasum": ""
             },
             "require": {
@@ -644,7 +644,7 @@
                 "wordpress",
                 "wordpress-development"
             ],
-            "time": "2017-07-30 12:17:26"
+            "time": "2017-08-02 10:57:54"
         },
         {
             "name": "wordpruss/wordpruss",

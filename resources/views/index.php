@@ -1,5 +1,5 @@
 <div class="wrap about-wrap patterns-overview-wrap">
-	<h1>WordPress Admin Patterns</h1>
+	<h1><?php echo $test; ?>WordPress Admin Patterns</h1>
 
 	<div class="about-text">
 		Pattern Library for Theme and Plugin Developers to aide in building Admin interfaces consistient

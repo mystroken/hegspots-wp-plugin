@@ -6,7 +6,8 @@ class DefaultController extends Controller
 {
 	public function index()
 	{
+		$test = 'Here is a test message!';
 		$view = new \Vitaminate\View\View(realpath(__DIR__ . '/../../../resources/views/'));
-		echo $view->render('index.html');
+		$view->load('index', array('test' => $test));
 	}
 }
