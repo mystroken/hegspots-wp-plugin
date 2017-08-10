@@ -62,49 +62,26 @@ load_plugin_textdomain('hegspots', false, __DIR__ . '/resources/languages/');
 |
 */
 
-$app = require_once __DIR__.'/bootstrap/app.php';
+$app = require_once __DIR__ . '/bootstrap/app.php';
 
-use \WordPruss\Admin\Page\Menu;
-use \WordPruss\Admin\Page\SubMenu;
-use \WordPruss\Admin\Page\Page;
+/*
+|--------------------------------------------------------------------------
+| Require Custom WordPress Hookable Components.
+|--------------------------------------------------------------------------
+|
+| 
+|
+*/
 
-// Creates a new admin menu
-$adminMenu = new Menu([
-    'title' => __('HEG Spots', 'hegspots'),
-    'slug' => 'heg-spots-index.php',
-    'icon' => 'dashicons-location-alt',
-    'order' => 26.1993,
-]);
+require_once __DIR__ . '/app/Wordpress/Panels.php';
 
-// Creating a new submenu
-$adminSubMenu = new SubMenu([
-    'title' => __('Places', 'hegspots'),
-    'slug' => 'heg-spots-places.php',
-    'parent_slug' => $adminMenu->getArgument('slug')//'plugins.php'
-]);
+/*
+|--------------------------------------------------------------------------
+| Attaches Plugin LifeCycle Hooks.
+|--------------------------------------------------------------------------
+|
+*/
 
-// Create a panel for the menu
-$adminPanel = new Page([
-    'title' => 'Plugin Name - Welcome to the settings page',
-    'role' => 'manage_options',
-    'callback' => function() use ($app) {
-        /**
-         * @vat \App\Http\Controllers\DefaultController
-         */
-      $defaultController = new \App\Http\Controllers\DefaultController(); 
-      return $defaultController->index();
-    }
-]);
-
-$adminMenu->setPage($adminPanel)->hook();
-$adminSubMenu->setPage($adminPanel)->hook();
-
-
-/**
- * Attaches Plugin LifeCycle Hooks
- *
- * Do not remove any of these following lines
- */
 $activation_file   = dirname(__FILE__) . '/app/activate.php';
 $deactivation_file = dirname(__FILE__) . '/app/deactivate.php';
 $uninstall_file    = dirname(__FILE__) . '/app/uninstall.php';

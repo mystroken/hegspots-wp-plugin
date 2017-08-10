@@ -14,6 +14,8 @@ $app = new Vitaminate\Foundation\Application(
     realpath(__DIR__.'/../')
 );
 
+$config = require_once __DIR__ . '/../config/app.php';
+
 /*
 |--------------------------------------------------------------------------
 | Bind Important Interfaces
@@ -25,7 +27,8 @@ $app = new Vitaminate\Foundation\Application(
 |
 */
 
-
+// Binds gloabl controllers
+foreach ($config['controllers'] as $key => $value) $app->singleton('controller.'.$key, $value);
 
 /*
 |--------------------------------------------------------------------------
