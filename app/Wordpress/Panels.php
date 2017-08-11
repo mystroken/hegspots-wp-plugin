@@ -17,10 +17,10 @@ $dashboardPanel = new Page([
     'role' => 'manage_options',
     'callback' => function() use ($app) {
         /**
-         * @var \App\Http\Controllers\DefaultController
+         * @var \App\Http\Controllers\Admin\DashboardController $dashboardController
          */
-      $dashboardController = $app->make('controller.dashboard'); 
-      return $dashboardController->index();
+      $dashboardController = $app->make('controller.dashboard');
+      return $dashboardController->callAction('index', ['request' => $app->make('request')]);
     }
 ]);
 
@@ -31,8 +31,8 @@ $placesPanel = new Page([
         /**
          * @var \App\Http\Controllers\DefaultController
          */
-      $placeController = new \App\Http\Controllers\Admin\PlaceController(); 
-      return $placeController->index();
+      $placeController = new \App\Http\Controllers\Admin\PlaceController();
+      return $placeController->callAction('index', ['request' => $app->make('request')]);
     }
 ]);
 

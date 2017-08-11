@@ -73,6 +73,10 @@ $app = require_once __DIR__ . '/bootstrap/app.php';
 |
 */
 
+$app->bind('request', function (){
+    return $request = \Vitaminate\Http\Request::createFromGlobals();
+});
+
 require_once __DIR__ . '/app/Wordpress/Panels.php';
 
 /*

@@ -423,6 +423,59 @@
             "time": "2017-02-06 22:02:47"
         },
         {
+            "name": "symfony/http-foundation",
+            "version": "3.4.x-dev",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/http-foundation.git",
+                "reference": "b7e34ba2eb4d0ac9eb0c2d46b20d9136fde5fa66"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/http-foundation/zipball/b7e34ba2eb4d0ac9eb0c2d46b20d9136fde5fa66",
+                "reference": "b7e34ba2eb4d0ac9eb0c2d46b20d9136fde5fa66",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^5.5.9|>=7.0.8",
+                "symfony/polyfill-mbstring": "~1.1"
+            },
+            "require-dev": {
+                "symfony/expression-language": "~2.8|~3.0|~4.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.4-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Component\\HttpFoundation\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony HttpFoundation Component",
+            "homepage": "https://symfony.com",
+            "time": "2017-08-10 07:07:17"
+        },
+        {
             "name": "symfony/polyfill-mbstring",
             "version": "dev-master",
             "source": {
@@ -599,20 +652,22 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/vitaminframework/framework.git",
-                "reference": "e8e6036004fa69b308db521caa2fdbfea8cf77dc"
+                "reference": "8fa6fb4a67d02ce07b00a3866d7113f01e6b2591"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/vitaminframework/framework/zipball/e8e6036004fa69b308db521caa2fdbfea8cf77dc",
-                "reference": "e8e6036004fa69b308db521caa2fdbfea8cf77dc",
+                "url": "https://api.github.com/repos/vitaminframework/framework/zipball/8fa6fb4a67d02ce07b00a3866d7113f01e6b2591",
+                "reference": "8fa6fb4a67d02ce07b00a3866d7113f01e6b2591",
                 "shasum": ""
             },
             "require": {
                 "illuminate/container": "5.0.*",
-                "php": ">=5.5.9"
+                "php": ">=5.6",
+                "symfony/http-foundation": "^3.3.6"
             },
             "require-dev": {
-                "phpunit/phpunit": "5.7"
+                "phpunit/phpunit": "5.7",
+                "satooshi/php-coveralls": "dev-master"
             },
             "type": "library",
             "autoload": {
@@ -644,7 +699,7 @@
                 "wordpress",
                 "wordpress-development"
             ],
-            "time": "2017-08-02 10:57:54"
+            "time": "2017-08-10 09:48:27"
         },
         {
             "name": "wordpruss/wordpruss",
