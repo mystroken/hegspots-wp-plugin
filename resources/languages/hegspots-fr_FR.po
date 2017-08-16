@@ -1,0 +1,135 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Heg Spot\n"
+"POT-Creation-Date: 2017-08-15 23:54+0100\n"
+"PO-Revision-Date: 2017-08-16 00:04+0100\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: fr_FR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Generator: Poedit 1.8.8\n"
+"X-Poedit-Basepath: ../..\n"
+"X-Poedit-WPHeader: plugin.php\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
+"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"X-Poedit-SearchPath-0: app\n"
+"X-Poedit-SearchPath-1: bootstrap\n"
+"X-Poedit-SearchPath-2: config\n"
+"X-Poedit-SearchPath-3: resources\n"
+"X-Poedit-SearchPath-4: config\n"
+"X-Poedit-SearchPath-5: plugin.php\n"
+"X-Poedit-SearchPathExcluded-0: *.js\n"
+
+#: app/Wordpress/Panels.php:19
+msgid "Heg Spots - Dashboard"
+msgstr "Heg Spots - Dashboard"
+
+#: app/Wordpress/Panels.php:31
+msgid "Places - Heg Spots"
+msgstr "Places - Heg Spots"
+
+#: app/Wordpress/Panels.php:43
+msgid "Types of Place - Heg Spots"
+msgstr "Types de Place - Heg Spots"
+
+#: app/Wordpress/Panels.php:55
+msgid "Members - Heg Spots"
+msgstr "Membres - Heg Spots"
+
+#: app/Wordpress/Panels.php:67
+msgid "Activities - Heg Spots"
+msgstr "Activités - Heg Spots"
+
+#: app/Wordpress/Panels.php:86
+msgid "HEG Spots"
+msgstr "HEG Spots"
+
+#: app/Wordpress/Panels.php:94 resources/views/place/index.php:2
+msgid "Places"
+msgstr "Places"
+
+#: app/Wordpress/Panels.php:100
+msgid "Types of place"
+msgstr "Types de place"
+
+#: app/Wordpress/Panels.php:106
+msgid "Members"
+msgstr "Membres"
+
+#: app/Wordpress/Panels.php:112 resources/views/activity/index.php:2
+msgid "Activities"
+msgstr "Activités"
+
+#: resources/views/activity/index.php:16 resources/views/activity/index.php:24
+msgid "Add a new activity"
+msgstr "Ajouter une nouvelle activité"
+
+#: resources/views/activity/index.php:19 resources/views/activity/index.php:45
+#: resources/views/activity/index.php:102
+msgid "Name"
+msgstr "Nom"
+
+#: resources/views/activity/index.php:21
+msgid "The name of the activity."
+msgstr "Le nom de l'activité."
+
+#: resources/views/activity/index.php:40 resources/views/activity/index.php:97
+msgid "Select All"
+msgstr "Tout sélectionner"
+
+#: resources/views/activity/index.php:50 resources/views/activity/index.php:107
+msgid "Slug"
+msgstr "Identifiant"
+
+#: resources/views/activity/index.php:55 resources/views/activity/index.php:112
+msgid "Actions"
+msgstr "Actions"
+
+#: resources/views/activity/index.php:79
+msgid "delete"
+msgstr "supprimer"
+
+#: resources/views/activity/index.php:88
+msgid "There is no data yet."
+msgstr "Il n'y a pas encore de données pour le moment."
+
+#: resources/views/dashboard/index.php:3
+msgid "Welcome to Heg Spots"
+msgstr "Bienvenue à Heg Spots"
+
+#: resources/views/dashboard/index.php:8
+msgid ""
+"Your  WordPress Extension to allow you to pusblish some recommended places "
+"from some users."
+msgstr ""
+"Votre Extension WordPress vous permettant de publier des endroits "
+"recommendés par des utilisateurs."
+
+#: resources/views/dashboard/index.php:13
+msgid "Last updated August 2017, Heg Spots 1.0"
+msgstr "Dernière mise à jour en Août 2017, Heg Spots 1.0"
+
+#: resources/views/place/index.php:3
+msgid "Add New"
+msgstr "Ajouter"
+
+#: resources/views/place/index.php:9
+msgid "Save"
+msgstr "Enregistrer"
+
+#. Plugin Name of the plugin/theme
+msgid "Heg Spot"
+msgstr "Heg Spot"
+
+#. Author of the plugin/theme
+msgid "Mystro Ken"
+msgstr "Mystro Ken"
+
+#. Author URI of the plugin/theme
+msgid "http://mystroken.cm/"
+msgstr "http://mystroken.cm/"

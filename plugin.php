@@ -38,7 +38,7 @@ if ( !defined( 'ABSPATH' ) ) exit;
 |
 */
 
-require __DIR__.'/bootstrap/autoload.php';
+require __DIR__ . '/bootstrap/autoload.php';
 
 /*
 |------------------------------------------------------------------------
@@ -48,7 +48,7 @@ require __DIR__.'/bootstrap/autoload.php';
 | Adds i18 Language Support
 */
 
-load_plugin_textdomain('hegspots', false, __DIR__ . '/resources/languages/');
+load_plugin_textdomain('hegspots', false, basename( dirname( __FILE__ ) ) . '/resources/languages/');
 
 /*
 |--------------------------------------------------------------------------
@@ -62,22 +62,25 @@ load_plugin_textdomain('hegspots', false, __DIR__ . '/resources/languages/');
 |
 */
 
+/** @var \Vitaminate\Foundation\Application $app */
 $app = require_once __DIR__ . '/bootstrap/app.php';
 
 /*
 |--------------------------------------------------------------------------
-| Require Custom WordPress Hookable Components.
+| Require Custom WordPress 'Hookable' Components.
 |--------------------------------------------------------------------------
 |
-| 
-|
 */
+
+$app->singleton('SubRouter', function (){
+    return new \App\Http\Routing\SubRouter();
+});
 
 $app->bind('request', function (){
     return $request = \Vitaminate\Http\Request::createFromGlobals();
 });
 
-require_once __DIR__ . '/app/Wordpress/Panels.php';
+require_once __DIR__ . '/app/Wordpress/Admin/Panels.php';
 
 /*
 |--------------------------------------------------------------------------
