@@ -10,11 +10,10 @@ $request = $app->make('request');
 $homeShortcode = new Shortcode('test', []);
 
 $homeShortcode->handle(function($atts, $content) use ($app, $request) {
-	/**
-	 * @var \App\Http\Controllers\Controller $dashboardController
-	 */
-	$dashboardController = $app->make('controller.dashboard');
-	$dashboardController->respond($request, 'heg-spots-index.php');
+	
+	$view = new \Vitaminate\View\View(realpath( app('path.base') . '/resources/views/'), [ 'subRouter' => app('SubRouter') ]);
+	$view->load('place.create');
+	
 });
 
 $homeShortcode->hook();

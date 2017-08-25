@@ -91,18 +91,17 @@ require_once __DIR__ . '/app/Wordpress/Admin/Panels.php';
 |
 */
 
-$activation_file   = dirname(__FILE__) . '/app/activate.php';
-$deactivation_file = dirname(__FILE__) . '/app/deactivate.php';
-$uninstall_file    = dirname(__FILE__) . '/app/uninstall.php';
+$activation_file   = dirname(__FILE__) . '/activate.php';
+$deactivation_file = dirname(__FILE__) . '/deactivate.php';
+$uninstall_file    = dirname(__FILE__) . '/uninstall.php';
 
 if(
 	   !file_exists( $activation_file )
 	OR !file_exists( $deactivation_file )
 	OR !file_exists( $uninstall_file )
 ){
-	throw new Exception("Please check that activate.php, deactivate.php and uninstall.php files are present and well written under the app directory of your plugin {$config['plugin_path']}");
+	throw new Exception("Please check that activate.php, deactivate.php and uninstall.php files are present and well written on the root of your plugin {$config['plugin_path']}");
 } else{
-	register_activation_hook(  __FILE__, function() { include_once dirname(__FILE__) . '/app/activate.php'; });
-	register_deactivation_hook(__FILE__, function() { include_once dirname(__FILE__) . '/app/deactivate.php'; });
-    //register_uninstall_hook(__FILE__, function() { include_once dirname(__FILE__) . '/app/uninstall.php'; });
+	register_activation_hook(  __FILE__, function() use ($activation_file) { include_once $activation_file; });
+	register_deactivation_hook(__FILE__, function() use ($deactivation_file) { include_once $deactivation_file; });
 }
