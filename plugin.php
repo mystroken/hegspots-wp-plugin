@@ -80,6 +80,8 @@ $app->bind('request', function (){
     return $request = \Vitaminate\Http\Request::createFromGlobals();
 });
 
+require_once __DIR__ . '/app/Wordpress/Enqueue.php';
+require_once __DIR__ . '/app/Wordpress/Shortcodes.php';
 require_once __DIR__ . '/app/Wordpress/Admin/Panels.php';
 
 /*

@@ -14,7 +14,8 @@ $app = new Vitaminate\Foundation\Application(
     realpath(__DIR__.'/../')
 );
 
-$config = require_once __DIR__ . '/../config/app.php';
+$config = require_once __DIR__ . '/../config/config.php';
+$appConfig = require_once __DIR__ . '/../config/app.php';
 
 /*
 |--------------------------------------------------------------------------
@@ -26,9 +27,10 @@ $config = require_once __DIR__ . '/../config/app.php';
 | incoming requests to this application from both the web and CLI.
 |
 */
+$app->instance('config', $config);
 
 // Binds gloabl controllers
-foreach ($config['controllers'] as $key => $value) $app->singleton('controller.'.$key, $value);
+foreach ($appConfig['controllers'] as $key => $value) $app->singleton('controller.'.$key, $value);
 
 /*
 |--------------------------------------------------------------------------

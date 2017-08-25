@@ -14,7 +14,6 @@ $request = $app->make('request');
 |
 */
 
-
 $dashboardPanel = new Page([
     'title' => __('Heg Spots - Dashboard', 'hegspots'),
     'role' => 'manage_options',
@@ -75,6 +74,18 @@ $activitiesPanel = new Page([
     }
 ]);
 
+$optionsPanel = new Page([
+    'title' => __('Settings - Heg Spots', 'hegspots'),
+    'role' => 'manage_options',
+    'callback' => function() use ($app, $request) {
+        /**
+         * @var \App\Http\Controllers\Controller $optionsController
+         */
+        $optionsController = new \App\Http\Controllers\Admin\OptionsController();
+        $optionsController->respond($request, 'heg-spots-options.php');
+    }
+]);
+
 /*
 |-------------------------------------------------------------------------
 | Creates different menus or submenu for each pages.
@@ -114,9 +125,16 @@ $activitiesSubMenu = new SubMenu([
     'parent_slug' => $pluginMenu->getArgument('slug')
 ]);
 
+$optionsSubMenu = new SubMenu([
+    'title' => __('HEG Spots Settings', 'hegspots'),
+    'slug' => 'heg-spots-options.php',
+    'parent_slug' => $pluginMenu->getArgument('slug')
+]);
+
 $pluginMenu->setPage($dashboardPanel)->hook();
 $placesSubMenu->setPage($placesPanel)->hook();
 $typesOfPlaceSubMenu->setPage($typesOfPlacePanel)->hook();
 $membersSubMenu->setPage($membersPanel)->hook();
 $activitiesSubMenu->setPage($activitiesPanel)->hook();
+$optionsSubMenu->setPage($optionsPanel)->hook();
 

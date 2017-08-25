@@ -15,11 +15,29 @@ class MemberController extends Controller
         return $this->render('member.index', [ 'memberListTable' => $memberListTable]);
     }
 
+    public function createMember(Request $request)
+    {
+        return $this->render('member.create-member');
+    }
+
     /**
      * @param Request $request
      */
     public function initSubRouting(Request $request, $page)
     {
+        // Create member action
+        $this->subRouter->addRoute(
+            'member_create',
+            [
+                'page' => $page,
+                'action' => 'create-member',
+            ],
+            $this,
+            'createMember',
+            ['request' => $request]
+        );
+
+
         // Default action
         $this->subRouter->addRoute(
             'member_index',
@@ -28,5 +46,6 @@ class MemberController extends Controller
             'index',
             ['request' => $request]
         );
+        
     }
 }

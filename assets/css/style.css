@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /**
 *
 * 	Style
@@ -8616,7 +8617,7 @@ video {
   display: none !important;
 }
 
-@media only screen and (min-width: 992px) {
+@media only screen and (min-width: 601px) {
   .col-m-center {
     margin: 0 auto;
     float: none;
@@ -8713,7 +8714,7 @@ video {
   }
 }
 
-@media only screen and (min-width: 1200px) {
+@media only screen and (min-width: 993px) {
   .col-l-center {
     margin: 0 auto;
     float: none;

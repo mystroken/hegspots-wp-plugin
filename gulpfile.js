@@ -2,7 +2,6 @@
  * Created by ken on 09/08/2017.
  */
 
-
 var gulp         = require("gulp"),
     sass         = require("gulp-sass"),
     autoprefixer = require('gulp-autoprefixer'),
@@ -14,10 +13,14 @@ var gulp         = require("gulp"),
     plumber      = require('gulp-plumber'),
     path         = require('path');
 
-var cssFiles = ['assets/css/style.css'],
+var cssFiles = [
+        'assets/css/style.css',
+        'assets/css/admin.css'
+    ],
     cssDestDir = 'assets/css';
 
 var sass_input = 'assets/cachu/*.{scss,sass}',
+    sass_watch = ['assets/cachu/*.{scss,sass}', 'assets/cachu/*/*.{scss,sass}', 'assets/cachu/*/*/*.{scss,sass}'],
     sass_output = 'assets/css',
     sass_options = {
         errLogToConsole: true,
@@ -86,8 +89,8 @@ gulp.task('js', function() {
         .pipe(gulp.dest(js_dist));
 });
 
-gulp.task("default", ["styles", "sass", "js"], function() {
+gulp.task("watch", ["styles", "sass", "js"], function() {
     gulp.watch(cssFiles, ["styles"]);
-    gulp.watch(sass_input, ["sass"]);
+    gulp.watch(sass_watch, ["sass"]);
     gulp.watch(js_src, ["js"]);
 });
