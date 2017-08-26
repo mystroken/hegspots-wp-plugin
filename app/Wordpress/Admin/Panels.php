@@ -17,12 +17,13 @@ $request = $app->make('request');
 $dashboardPanel = new Page([
     'title' => __('Heg Spots - Dashboard', 'hegspots'),
     'role' => 'manage_options',
-    'callback' => function() use ($app, $request) {
+    'callback' => function() use ($app, $request, $router) {
         /**
          * @var \App\Http\Controllers\Controller $dashboardController
          */
-      $dashboardController = $app->make('controller.dashboard');
-      $dashboardController->respond($request, 'heg-spots-index.php');
+      //$dashboardController = $app->make('controller.dashboard');
+      //$dashboardController->respond($request, 'heg-spots-index.php');
+        $router->renderController();
     }
 ]);
 

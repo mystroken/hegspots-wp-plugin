@@ -61,8 +61,12 @@ load_plugin_textdomain('hegspots', false, basename( dirname( __FILE__ ) ) . '/re
 | the responses back to the browser and delight our users.
 |
 */
+use Vitaminate\Foundation\Application;
+use Vitaminate\Http\Request;
 
-/** @var \Vitaminate\Foundation\Application $app */
+/**
+ * @var Application $app
+ */
 $app = require_once __DIR__ . '/bootstrap/app.php';
 
 /*
@@ -76,9 +80,15 @@ $app->singleton('SubRouter', function (){
     return new \App\Http\Routing\SubRouter();
 });
 
-$app->bind('request', function (){
-    return $request = \Vitaminate\Http\Request::createFromGlobals();
-});
+// Create a request from server variables, and bind it to the container
+$request = Request::createFromGlobals();
+$app->instance('Vitaminate\Http\Request', $request);
+$app->instance('request', $request);
+
+// Create the router instance
+$routeCollection = require_once __DIR__ . '/routes.php';
+$router = new \Vitaminate\Routing\Router($routeCollection, $app);
+$app->instance('router', $router);
 
 require_once __DIR__ . '/app/Wordpress/Enqueue.php';
 require_once __DIR__ . '/app/Wordpress/Shortcodes.php';
