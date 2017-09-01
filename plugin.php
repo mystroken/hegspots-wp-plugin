@@ -86,9 +86,9 @@ $app->instance('Vitaminate\Http\Request', $request);
 $app->instance('request', $request);
 
 // Create the router instance
-$routeCollection = require_once __DIR__ . '/routes.php';
-$router = new \Vitaminate\Routing\Router($routeCollection, $app);
+$router = new \Vitaminate\Routing\Router( require_once __DIR__ . '/routes.php', $app );
 $app->instance('router', $router);
+
 
 require_once __DIR__ . '/app/Wordpress/Enqueue.php';
 require_once __DIR__ . '/app/Wordpress/Shortcodes.php';

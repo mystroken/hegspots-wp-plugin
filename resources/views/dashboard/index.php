@@ -11,13 +11,18 @@
 
 	<div class="welcome-panel">
 		<div class="welcome-panel-content">
-			<h2>Panel Title</h2>
-			<p class="about-description">Subtitle</p>
+			<h2>
+				<?php _e('Overview', 'hegspots'); ?>
+			</h2>
 			<div class="welcome-panel-column-container">
 				<div class="welcome-panel-column">
-					<h3>Column Title</h3>
-					<a class="button button-primary button-hero" href="#">Call to Action</a>
-					<p>or, <a href="#">another option</a></p>
+					<h3>
+						<?php _e('Shortcut', 'hegspots'); ?>
+					</h3>
+					<a class="button button-primary button-hero" href="<?php echo \Vitaminate\Routing\URL::to('place_create'); ?>">
+						<?php _e('Add a new place', 'hegspots'); ?>
+					</a>
+					<p>or, <a href="<?php echo \Vitaminate\Routing\URL::to('member_create'); ?>"><?php _e('Create a new member', 'hegspots'); ?></a></p>
 				</div>
 				<div class="welcome-panel-column">
 					<h3>Column Title</h3>

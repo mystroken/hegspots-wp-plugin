@@ -18,7 +18,7 @@ class Profile extends Model
      *
      * @var array
      */
-    protected $fillable = ['photo', 'watch', 'bag', 'book', 'grooming', 'style_icon', 'brand'];
+    protected $fillable = ['photo', 'cover', 'about', 'watch', 'bag', 'book', 'grooming', 'style_icon', 'brand'];
 
     /**
      * Disable created_at and update_at columns, unless you have those.

@@ -10,4 +10,6 @@ return [
 	*/
 	'url' => plugins_url('', realpath(__DIR__)),
 	'path' => realpath(plugin_dir_path( __FILE__ ) . '../') . DIRECTORY_SEPARATOR,
+
+	'member_default_avatar' => asset('img/default-avatar.png'),
 ];

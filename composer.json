@@ -5,9 +5,9 @@
     "autoload": {
         "psr-4": {
             "": "src/",
-            "App\\": "app/",
-            "Vitaminate\\Routing\\": "routing/"
-        }
+            "App\\": "app/"
+        },
+        "files": ["app/helpers.php"]
     },
     "require": {
         "wordpruss/wordpruss": "0.x-dev",

@@ -108,7 +108,9 @@ if( false === get_option('hegspots_plugin_installed') )
 
   $wpdb->query("CREATE TABLE IF NOT EXISTS {$wpdb->prefix}hegspots_profiles (
     ID int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
-    photo text, 
+    photo varchar(255) DEFAULT NULL, 
+    cover varchar(255) DEFAULT NULL,
+    about text,
     watch varchar(100) DEFAULT NULL,
     bag varchar(100) DEFAULT NULL,
     book varchar(100) DEFAULT NULL,

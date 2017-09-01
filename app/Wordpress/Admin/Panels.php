@@ -4,9 +4,6 @@ use \WordPruss\Admin\Page\Menu;
 use \WordPruss\Admin\Page\SubMenu;
 use \WordPruss\Admin\Page\Page;
 
-
-/** @var \Vitaminate\Http\Request $request */
-$request = $app->make('request');
 /*
 |-------------------------------------------------------------------------
 | Creates differents pages.
@@ -17,73 +14,48 @@ $request = $app->make('request');
 $dashboardPanel = new Page([
     'title' => __('Heg Spots - Dashboard', 'hegspots'),
     'role' => 'manage_options',
-    'callback' => function() use ($app, $request, $router) {
-        /**
-         * @var \App\Http\Controllers\Controller $dashboardController
-         */
-      //$dashboardController = $app->make('controller.dashboard');
-      //$dashboardController->respond($request, 'heg-spots-index.php');
-        $router->renderController();
+    'callback' => function() use ($router) {
+        $router->run();
     }
 ]);
 
 $placesPanel = new Page([
     'title' => __('Places - Heg Spots', 'hegspots'),
     'role' => 'manage_options',
-    'callback' => function() use ($app, $request) {
-        /**
-         * @var \App\Http\Controllers\Controller $placeController
-         */
-      $placeController = new \App\Http\Controllers\Admin\PlaceController();
-      $placeController->respond($request, 'heg-spots-places.php');
+    'callback' => function() use ($router) {
+        $router->run();
     }
 ]);
 
 $typesOfPlacePanel = new Page([
     'title' => __('Types of Place - Heg Spots', 'hegspots'),
     'role' => 'manage_options',
-    'callback' => function() use ($app, $request) {
-        /**
-         * @var \App\Http\Controllers\Controller $typesOfPlaceController
-         */
-      $typesOfPlaceController = new \App\Http\Controllers\Admin\TypeOfPlaceController();
-      $typesOfPlaceController->respond($request, 'heg-spots-types-of-place.php');
+    'callback' => function() use ($router) {
+        $router->run();
     }
 ]);
 
 $membersPanel = new Page([
     'title' => __('Members - Heg Spots', 'hegspots'),
     'role' => 'manage_options',
-    'callback' => function() use ($app, $request) {
-        /**
-         * @var \App\Http\Controllers\Controller $memberController
-         */
-        $memberController = new \App\Http\Controllers\Admin\MemberController();
-        $memberController->respond($request, 'heg-spots-members.php');
+    'callback' => function() use ($router) {
+        $router->run();
     }
 ]);
 
 $activitiesPanel = new Page([
     'title' => __('Activities - Heg Spots', 'hegspots'),
     'role' => 'manage_options',
-    'callback' => function() use ($app, $request) {
-        /**
-         * @var \App\Http\Controllers\Controller $activityController
-         */
-        $activityController = new \App\Http\Controllers\Admin\ActivityController();
-        $activityController->respond($request, 'heg-spots-activities.php');
+    'callback' => function() use ($router) {
+        $router->run();
     }
 ]);
 
 $optionsPanel = new Page([
     'title' => __('Settings - Heg Spots', 'hegspots'),
     'role' => 'manage_options',
-    'callback' => function() use ($app, $request) {
-        /**
-         * @var \App\Http\Controllers\Controller $optionsController
-         */
-        $optionsController = new \App\Http\Controllers\Admin\OptionsController();
-        $optionsController->respond($request, 'heg-spots-options.php');
+    'callback' => function() use ($router) {
+        $router->run();
     }
 ]);
 

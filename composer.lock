@@ -652,12 +652,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/vitaminframework/framework.git",
-                "reference": "8fa6fb4a67d02ce07b00a3866d7113f01e6b2591"
+                "reference": "5c45c571518d71457bef7e14e3a7f881d41178de"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/vitaminframework/framework/zipball/8fa6fb4a67d02ce07b00a3866d7113f01e6b2591",
-                "reference": "8fa6fb4a67d02ce07b00a3866d7113f01e6b2591",
+                "url": "https://api.github.com/repos/vitaminframework/framework/zipball/5c45c571518d71457bef7e14e3a7f881d41178de",
+                "reference": "5c45c571518d71457bef7e14e3a7f881d41178de",
                 "shasum": ""
             },
             "require": {
@@ -699,7 +699,7 @@
                 "wordpress",
                 "wordpress-development"
             ],
-            "time": "2017-08-10 09:48:27"
+            "time": "2017-08-26 05:22:11"
         },
         {
             "name": "wordpruss/wordpruss",

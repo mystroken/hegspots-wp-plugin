@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use \App\Http\Controllers\Controller;
 use App\Wordpress\Admin\ListTable\MemberListTable;
 use Vitaminate\Http\Request;
+use App\Support\Slugger;
 
 class MemberController extends Controller
 {
@@ -17,6 +18,12 @@ class MemberController extends Controller
 
     public function createMember(Request $request)
     {
+        if( !empty($data = $request->request->all()) )
+        {
+            $slugger = new Slugger;
+            var_dump($data);
+        }
+
         return $this->render('member.create-member');
     }
 
