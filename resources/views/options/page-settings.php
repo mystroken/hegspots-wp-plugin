@@ -1,5 +1,6 @@
 <?php 
-use \Vitaminate\Routing\URL; ?>
+use Vitaminate\Routing\URL;
+use App\Models\Options; ?>
 
 <div class="wrap">
 
@@ -24,16 +25,17 @@ use \Vitaminate\Routing\URL; ?>
 
 		<table class="form-table">
 			<tbody>
+			<?php foreach(Options::$pagesListKeys as $pageKey => $pageValue): ?>
 				<tr valign="top">
 					<th scope="row">
-						<label for="hegspots_pages[places]"><?php _e('Places', 'hegspots'); ?></label>
+						<label for="<?php echo Options::$pagesKeyName.'['.$pageKey.']'; ?>"><?php _e(ucfirst($pageKey), 'hegspots'); ?></label>
 					</th>
 					<td>	
-						<select name="hegspots_pages[places]" id="hegspots_pages[places]">
+						<select name="<?php echo Options::$pagesKeyName.'['.$pageKey.']'; ?>" id="<?php echo Options::$pagesKeyName.'['.$pageKey.']'; ?>">
 							<option value=""><?php _e('None', 'hegspots'); ?></option>
 							<?php foreach($wpPages as $wpPage): ?>
 							<option class="level-0" value="<?php echo $wpPage->ID; ?>"
-							<?php if(!empty($pluginPages['places']) && $pluginPages['places'] == $wpPage->ID ): ?>
+							<?php if(!empty($pluginPages[$pageKey]) && $pluginPages[$pageKey] == $wpPage->ID ): ?>
 								selected
 							<?php endif; ?>
 							>
@@ -42,34 +44,12 @@ use \Vitaminate\Routing\URL; ?>
 							<?php endforeach; ?>
 						</select>
 
-						<?php if(!empty($pluginPages['places']) && intval($pluginPages['places'])>0 ): ?>
-							<a href="<?php echo get_option('siteurl') . '?p=' . intval($pluginPages['places']); ?>" class="button-secondary" target="_bp"><?php _e('Display', 'hegspots') ?></a>		
+						<?php if(!empty($pluginPages[$pageKey]) && intval($pluginPages[$pageKey])>0 ): ?>
+							<a href="<?php echo get_option('siteurl') . '?p=' . intval($pluginPages[$pageKey]); ?>" class="button-secondary" target="_bp"><?php _e('Display', 'hegspots') ?></a>		
 						<?php endif; ?>					
 					</td>
 				</tr>
-				<tr valign="top">
-					<th scope="row">
-						<label for="hegspots_pages[members]"><?php _e('Members', 'hegspots') ?></label>
-					</th>
-					<td>						
-						<select name="hegspots_pages[members]" id="hegspots_pages[members]">
-							<option value=""><?php _e('None', 'hegspots'); ?></option>
-							<?php foreach($wpPages as $wpPage): ?>
-							<option class="level-0" value="<?php echo $wpPage->ID; ?>"
-							<?php if(!empty($pluginPages['members']) && $pluginPages['members'] == $wpPage->ID ): ?>
-								selected
-							<?php endif; ?>
-							>
-								<?php echo $wpPage->post_title; ?>
-							</option>
-							<?php endforeach; ?>
-						</select>
-
-						<?php if(!empty($pluginPages['members']) && intval($pluginPages['members'])>0 ): ?>
-							<a href="<?php echo get_option('siteurl') . '?p=' . intval($pluginPages['members']); ?>" class="button-secondary" target="_bp"><?php _e('Display', 'hegspots') ?></a>		
-						<?php endif; ?>				
-					</td>
-				</tr>
+			<?php endforeach; ?>
 			</tbody>
 		</table>
 				

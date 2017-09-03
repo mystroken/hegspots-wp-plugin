@@ -449,10 +449,6 @@
   height: auto;
 }
 
-.wrap * select {
-  width: 95%;
-}
-
 @media screen and (min-width: 601px) {
   .form-wrap--small {
     width: 90%;
@@ -463,6 +459,10 @@
   .form-wrap--small {
     width: 40%;
   }
+}
+
+.form-wrap--small select {
+  width: 95%;
 }
 
 .columns {
