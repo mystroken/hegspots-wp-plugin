@@ -3,6 +3,8 @@
 namespace App\Models;
 
 use \WeDevs\ORM\Eloquent\Model;
+use Vitaminate\Http\Request;
+use App\Support\Slugger;
 
 class Location extends Model
 {
@@ -68,5 +70,35 @@ class Location extends Model
         }
 
         return parent::getTable();
+    }
+
+
+    public static function firstOrCreate(array $attributes, $value = [])
+    {
+        if ( ! is_null($instance = static::where($attributes)->first()))
+        {
+            return $instance;
+        }
+        
+        return static::create(array_merge($attributes, $value));
+    }
+
+
+    public static function createFromRequest(Request $request)
+    {
+        $slugger = new Slugger;
+        $location__town     = mb_strtolower($request->request->get('location__town'),    'UTF-8');
+        $location__country  = mb_strtolower($request->request->get('location__country'), 'UTF-8');
+        $location__slug     = $slugger->slugify($location__town . '-' . $location__country);
+
+        return static::firstOrCreate(
+            [
+                'slug'    => $location__slug
+            ],
+            [
+                'town'    => $location__town,
+                'country' => $location__country,
+            ]
+        );
     }
 }

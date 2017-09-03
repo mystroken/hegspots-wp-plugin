@@ -24,33 +24,29 @@ class MemberController extends Controller
 
 
             // Location
-            $location__slug = $slugger->slugify($request->request->get('location__town') . '-' . $request->request->get('location__country'));
-            $location = Location::where('slug', $location__slug)->first();
+            $location = Location::createFromRequest($request);
 
-            if( is_null($location) )
-            {
-                $location = Location::create(
-                    [
-                        'slug'    => $location__slug,
-                        'town'    => strtolower($request->request->get('location__town')),
-                        'country' => strtolower($request->request->get('location__country')),
-                    ]
-                );
-            }
+
+            var_dump('ID: '      .  $location->ID);
+            var_dump('Slug: '    .  $location->slug);
+            var_dump('Town: '    .  $location->town);
+            var_dump('Country: ' .  $location->country);
  
         
             // Profile
-            $profile = Profile::create([
-                'photo'      => $request->request->get('photo'),
-                'cover'      => $request->request->get('cover'),
-                'about'      => $request->request->get('about'),
-                'watch'      => $request->request->get('watch'),
-                'bag'        => $request->request->get('bag'),
-                'book'       => $request->request->get('book'),
-                'grooming'   => $request->request->get('grooming'),
-                'brand'      => $request->request->get('brand'),
-                'style_icon' => $request->request->get('style-icon'),
-            ]);
+            $profile = Profile::create(
+                [
+                    'photo'      => $request->request->get('photo'),
+                    'cover'      => $request->request->get('cover'),
+                    'about'      => $request->request->get('about'),
+                    'watch'      => $request->request->get('watch'),
+                    'bag'        => $request->request->get('bag'),
+                    'book'       => $request->request->get('book'),
+                    'grooming'   => $request->request->get('grooming'),
+                    'brand'      => $request->request->get('brand'),
+                    'style_icon' => $request->request->get('style-icon'),
+                ]
+            );
         
 
             // Member
@@ -62,6 +58,8 @@ class MemberController extends Controller
             // Link models (Relationship)
             $member->profile()->associate($profile);
             $member->location()->associate($location);
+
+            var_dump($member->name );
 
 
             // Save the member

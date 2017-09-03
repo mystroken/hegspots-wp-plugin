@@ -2,23 +2,32 @@ jQuery(function($){
 
   var frame,
       // Member photo
-      linkPhoto = $('#link__select-avatar'),
-      inputPhoto = $('#input__photo'),
-      imgPhoto = $('#img__photo'),
+      linkMemberPhoto  = $('#member__link__select-avatar'),
+      inputMemberPhoto = $('#member__input__photo'),
+      imgMemberPhoto   = $('#member__img__photo'),
 
       // Member cover
-      linkCover = $('#link__select-cover'),
-      inputCover = $('#input__cover'),
-      imgCover = $('#img__cover')
+      linkMemberCover  = $('#member__link__select-cover'),
+      inputMemberCover = $('#member__input__cover'),
+      imgMemberCover   = $('#member__img__cover'),
+
+      // Place photo
+      linkPlacePhoto  = $('#place__link__select-photo'),
+      inputPlacePhoto = $('#place__input__photo'),
+      imgPlacePhoto   = $('#place__img__photo')
   ;
 
 
-      if(linkPhoto){
-        attachToWpMedia(linkPhoto, imgPhoto, inputPhoto);
+      if(linkMemberPhoto){
+        attachToWpMedia(linkMemberPhoto, imgMemberPhoto, inputMemberPhoto);
       }
 
-      if(linkCover){
-        attachToWpMedia(linkCover, imgCover, inputCover);
+      if(linkMemberCover){
+        attachToWpMedia(linkMemberCover, imgMemberCover, inputMemberCover);
+      }
+
+      if(linkPlacePhoto){
+        attachToWpMedia(linkPlacePhoto, imgPlacePhoto, inputPlacePhoto);
       }
 
 

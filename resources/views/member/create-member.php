@@ -1,3 +1,6 @@
+<?php 
+use \Vitaminate\Routing\URL; ?>
+
 <div class="wrap">
 	
 	<h1>
@@ -8,14 +11,14 @@
 
 	<div class="form-wrap form-wrap--small">
 
-		<form action="<?php echo \Vitaminate\Routing\URL::to('member_index'); ?>" method="post">
+		<form action="<?php echo URL::to('member_index'); ?>" method="post">
 
 			<div class="columns">
 				<div class="avatar-wrapper">
-					<img id="img__photo" src="<?php echo config('member_default_avatar'); ?>" alt="Default avatar">
-					<input type="hidden" name="photo" id="input__photo" value="<?php echo config('member_default_avatar'); ?>">
+					<img id="member__img__photo" src="<?php echo config('member_default_avatar'); ?>" alt="Default avatar">
+					<input type="hidden" name="photo" id="member__input__photo" value="<?php echo config('member_default_avatar'); ?>">
 					<br>
-					<a href="#" id="link__select-avatar"><?php _e('Change avatar','hegspots') ?></a>
+					<a href="#" id="member__link__select-avatar"><?php _e('Change avatar','hegspots') ?></a>
 				</div>
 
 				<div>
@@ -59,10 +62,10 @@
 
 			<div class="avatar-wrapper">
 				<span><?php _e('Picture Cover','hegspots'); ?></span>
-				<img id="img__cover" src="<?php echo config('member_default_cover'); ?>" alt="Default avatar">
-				<input type="hidden" name="cover" id="input__cover" value="<?php echo config('member_default_cover'); ?>">
+				<img id="member__img__cover" src="<?php echo config('member_default_cover'); ?>" alt="Default avatar">
+				<input type="hidden" name="cover" id="member__input__cover" value="<?php echo config('member_default_cover'); ?>">
 				<br>
-				<a href="#" id="link__select-cover"><?php _e('Change cover','hegspots') ?></a>
+				<a href="#" id="member__link__select-cover"><?php _e('Change cover','hegspots') ?></a>
 			</div>
 
 			<div class="form-field">

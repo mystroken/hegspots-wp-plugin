@@ -444,6 +444,15 @@
   box-sizing: border-box;
 }
 
+.wrap * img {
+  max-width: 100%;
+  height: auto;
+}
+
+.wrap * select {
+  width: 95%;
+}
+
 @media screen and (min-width: 601px) {
   .form-wrap--small {
     width: 90%;
@@ -454,11 +463,6 @@
   .form-wrap--small {
     width: 40%;
   }
-}
-
-.avatar-wrapper img {
-  max-width: 100%;
-  height: auto;
 }
 
 .columns {
