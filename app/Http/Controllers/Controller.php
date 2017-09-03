@@ -21,19 +21,11 @@ abstract class Controller extends BaseController
 	 */
 	protected $view;
 
-    /**
-     * @var SubRouter $subRouter
-     */
-	protected $subRouter;
-
 
 	public function __construct()
 	{
 		$this->app = app();
-        $this->subRouter = $this->app->make('SubRouter');
-        $this->view = new View(realpath( $this->app->make('path.base') . '/resources/views/'), [
-            'subRouter' => $this->subRouter
-        ]);
+        $this->view = new View(realpath( $this->app->make('path.base') . '/resources/views/'), []);
     }
 
 	/**
@@ -51,25 +43,4 @@ abstract class Controller extends BaseController
 	{
 		$this->view->load($template, $data, $echo);
 	}
-
-    /**
-     * @param Request $request
-     */
-    public abstract function initSubRouting(Request $request, $page);
-
-    /**
-     * @param Request $request
-     */
-    public function respond(Request $request, $page)
-    {
-        // First register sub routing system
-        $this->initSubRouting($request, $page);
-
-        /**
-         * From Request pick the correct SubRoute
-         * @var SubRoute $subRoute
-         */
-        $subRoute = $this->subRouter->match($request);
-        if(null !== $subRoute) $subRoute->respond();
-    }
 }

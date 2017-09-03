@@ -1,3 +1,6 @@
+<?php 
+use \Vitaminate\Routing\URL; ?>
+
 <div class="wrap nosubsub">
 <h1 class="wp-heading-inline"><?php _e('Activities', 'hegspots'); ?></h1>
 
@@ -14,7 +17,7 @@
 
 <div class="form-wrap">
 	<h2><?php _e('Add a new activity', 'hegspots'); ?></h2>
-	<form id="addactivity" method="post" action="<?php echo $subRouter->generateUrl('activity_index'); ?>" class="validate">
+	<form id="addactivity" method="post" action="<?php echo URL::to('activity_index'); ?>" class="validate">
 		<div class="form-field form-required term-name-wrap">
 			<label for="name"><?php _e('Name', 'hegspots'); ?></label>
 			<input name="name" id="name" type="text" aria-required="true" required>
@@ -74,7 +77,7 @@
 							<?php echo $activity->slug; ?>
 						</td>
 						<td class="description column-description">
-							<a href="<?php echo add_query_arg( array( 'page' => 'heg-spots-activities.php', 'action' => 'delete', 'id' => $activity->ID ), admin_url( 'admin.php' ) ) ?>">
+							<a href="<?php echo URL::to('activity_delete') . '&amp;id=' . $activity->ID; ?>">
 								<?php _e('delete', 'hegspots'); ?>
 							</a>
 						</td>

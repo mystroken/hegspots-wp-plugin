@@ -12,4 +12,5 @@ return [
 	'path' => realpath(plugin_dir_path( __FILE__ ) . '../') . DIRECTORY_SEPARATOR,
 
 	'member_default_avatar' => asset('img/default-avatar.png'),
+	'member_default_cover' => asset('img/default-avatar.png'),
 ];

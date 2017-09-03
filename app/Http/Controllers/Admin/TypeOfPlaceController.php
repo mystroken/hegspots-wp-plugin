@@ -39,35 +39,4 @@ class TypeOfPlaceController extends Controller
         $typesOfPlace = TypePlace::all();
         return $this->render('typeofplace.index', array( 'typesOfPlace' => $typesOfPlace ));
     }
-
-    /**
-     * @param Request $request
-     */
-    public function initSubRouting(Request $request, $page)
-    {
-        
-        // Delete action
-        $this->subRouter->addRoute(
-            'type_of_place_delete',
-            [
-                'page' => $page,
-                'action' => 'delete',
-            ],
-            $this,
-            'delete',
-            ['request' => $request]
-        );
-
-        
-        // Default action
-        $this->subRouter->addRoute(
-            'type_of_place_index',
-            [
-                'page' => $page,
-            ],
-            $this,
-            'index',
-            ['request' => $request]
-        );
-    }
 }

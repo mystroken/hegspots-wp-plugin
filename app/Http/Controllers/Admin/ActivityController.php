@@ -37,31 +37,4 @@ class ActivityController extends Controller
         $activities = Activity::all();
         $this->render('activity.index', array('activities' => $activities));
     }
-
-    /**
-     * @param Request $request
-     */
-	public function initSubRouting(Request $request, $page)
-    {
-        // Delete action
-        $this->subRouter->addRoute(
-            'activity_delete',
-            [
-                'page' => $page,
-                'action' => 'delete',
-            ],
-            $this,
-            'delete',
-            ['request' => $request]
-        );
-
-        // Default action
-        $this->subRouter->addRoute(
-            'activity_index',
-            ['page' => $page],
-            $this,
-            'index',
-            ['request' => $request]
-        );
-    }
 }

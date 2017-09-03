@@ -18,33 +18,4 @@ class PlaceController extends Controller
     {
         return $this->render('place.create');
     }
-
-    /**
-     * @param Request $request
-     */
-    public function initSubRouting(Request $request, $page)
-    {
-        // Create action
-        $this->subRouter->addRoute(
-            'place_create',
-            [
-                'page' => $page,
-                'action' => 'create',
-            ],
-            $this,
-            'create',
-            ['request' => $request]
-        );
-
-        // Default action
-        $this->subRouter->addRoute(
-            'place_index',
-            [
-                'page' => $page,
-            ],
-            $this,
-            'index',
-            ['request' => $request]
-        );
-    }
 }

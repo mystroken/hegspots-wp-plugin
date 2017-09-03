@@ -12,21 +12,4 @@ class DashboardController extends Controller
 	{
 		$this->render('dashboard.index');
 	}
-
-    /**
-     * @param Request $request
-     */
-    public function initSubRouting(Request $request, $page)
-    {
-        // Default action
-        $this->subRouter->addRoute(
-            'dashboard_index',
-            [
-                'page' => $page,
-            ],
-            $this,
-            'index',
-            ['request' => $request]
-        );
-    }
 }

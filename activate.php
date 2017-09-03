@@ -26,7 +26,7 @@ if( false === get_option('hegspots_plugin_installed') )
     country varchar(50) NOT NULL,
 
     PRIMARY KEY (ID),
-    UNIQUE KEY {$wpdb->prefix}hegspots_locations_town_country_unique (town, country)
+    UNIQUE KEY {$wpdb->prefix}hegspots_locations_slug_unique (slug)
   ) ENGINE=InnoDB {$charset_collate};");
 
 

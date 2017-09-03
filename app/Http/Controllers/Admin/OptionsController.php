@@ -46,34 +46,4 @@ class OptionsController extends Controller
 			'pluginPages' => $pluginPages
 		]);
 	}
-
-	 /**
-     * @param Request $request
-     */
-    public function initSubRouting(Request $request, $page)
-    {
-        // Index action
-        $this->subRouter->addRoute(
-            'options_page_settings',
-            [
-                'page' => $page,
-                'action' => 'page-settings'
-            ],
-            $this,
-            'pageSetting',
-            ['request' => $request]
-        );
-
-
-        // Index action
-        $this->subRouter->addRoute(
-            'options_index',
-            [
-                'page' => $page,
-            ],
-            $this,
-            'index',
-            ['request' => $request]
-        );
-    }
 }

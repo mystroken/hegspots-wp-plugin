@@ -1,3 +1,6 @@
+<?php 
+use \Vitaminate\Routing\URL; ?>
+
 <div class="wrap nosubsub">
 <h1 class="wp-heading-inline"><?php _e('Types of place', 'hegspots'); ?></h1>
 
@@ -14,7 +17,7 @@
 
 <div class="form-wrap">
 	<h2><?php _e('Add a new type of place', 'hegspots'); ?></h2>
-	<form id="addtypeofplace" method="post" action="<?php echo $subRouter->generateUrl('type_of_place_index'); ?>" class="validate">
+	<form id="addtypeofplace" method="post" action="<?php echo URL::to('type_of_place_index'); ?>" class="validate">
 		<div class="form-field form-required term-name-wrap">
 			<label for="photo"><?php _e('Picture', 'hegspots'); ?></label>
 			<input name="photo" id="photo" type="text" aria-required="true" required>
@@ -27,7 +30,7 @@
 		</div>
 		<div class="form-field form-required term-name-wrap">
 			<label for="description"><?php _e('Description', 'hegspots'); ?></label>
-			<input name="description" id="description" type="text" aria-required="true" required>
+			<input name="description" id="description" type="text">
 			<p><?php _e('Some text that describe the type of place.', 'hegspots'); ?></p>
 		</div>
 		<p class="submit">
@@ -92,7 +95,7 @@
 							<?php echo $typeOfPlace->slug; ?>
 						</td>
 						<td class="description column-description">
-							<a href="<?php echo $subRouter->generateUrl('type_of_place_delete') . '&amp;id='.$typeOfPlace->ID; ?>">
+							<a href="<?php echo URL::to('type_of_place_delete') . '&amp;id='.$typeOfPlace->ID; ?>">
 								<?php _e('delete', 'hegspots'); ?>
 							</a>
 						</td>

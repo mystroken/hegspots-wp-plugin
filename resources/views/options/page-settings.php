@@ -1,17 +1,20 @@
+<?php 
+use \Vitaminate\Routing\URL; ?>
+
 <div class="wrap">
 
 	<h1><?php _e('Settings', 'hegspots'); ?></h1>
 
 	<!-- <h2 class="nav-tab-wrapper">
-		<a href="<?php echo $subRouter->generateUrl('options_index'); ?>" class="nav-tab">
+		<a href="<?php echo URL::to('options_index'); ?>" class="nav-tab">
 		<?php _e('Options', 'hegspots'); ?>
 		</a>
-		<a href="<?php echo $subRouter->generateUrl('options_page_settings'); ?>" class="nav-tab nav-tab-active">
+		<a href="<?php echo URL::to('options_page_settings'); ?>" class="nav-tab nav-tab-active">
 			<?php _e('Pages', 'hegspots'); ?>
 		</a>
 	</h2> -->
 
-	<form action="<?php echo $subRouter->generateUrl('options_index'); ?>" method="post" id="hegspots-page-form">
+	<form action="<?php echo URL::to('options_index'); ?>" method="post" id="hegspots-page-form">
 		
 		<h3><?php _e('Directories', 'hegspots'); ?></h3>
 

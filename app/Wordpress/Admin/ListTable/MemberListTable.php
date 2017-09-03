@@ -26,6 +26,7 @@ class MemberListTable extends AbstractListTable
     {
         $db = Database::instance();
         $items = $db->table(static::$tableName)
+            ->orderBy('name', 'asc')
             ->offset( (($pageNumber - 1) * $perPage) )
             ->limit($perPage)
             ->get()
