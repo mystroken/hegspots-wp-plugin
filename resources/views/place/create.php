@@ -1,4 +1,4 @@
-<?php 
+<?php
 use \Vitaminate\Routing\URL; ?>
 
 <div class="wrap">
@@ -10,8 +10,8 @@ use \Vitaminate\Routing\URL; ?>
 	<p></p>
 
 	<div class="form-wrap form-wrap--small">
-		
-		<form action="<?php echo URL::to('place_index'); ?>" method="post">
+
+		<form action="<?php echo URL::to('place_create')->with('noheader', true); ?>" method="post">
 
 			<div class="form-field">
 				<img id="place__img__photo" src="<?php echo config('place_default_photo'); ?>" alt="Default avatar">
@@ -51,9 +51,35 @@ use \Vitaminate\Routing\URL; ?>
 				<label for="input__description"><?php _e('Description', 'hegspots'); ?></label>
 				<textarea name="description" id="input__description" cols="20" rows="5"></textarea>
 			</div>
-			
+
 			<div class="form-field">
-				<button type="submit" class="button button-primary button-large"><?php _e('Save place','hegspots') ?></button>	
+				<p>
+					<?php _e('Recommended by ', 'hegspots'); ?>
+				</p>
+				<?php if( !empty($members) ): ?>
+					<?php foreach ($members as $member): ?>
+
+						<label>
+							<input type="checkbox" name="recommendators[]" value="<?php echo $member->ID; ?>">
+							<?php echo $member->name; ?>
+						</label>
+
+					<?php endforeach; ?>
+				<?php else: ?>
+				<p>
+					<?php sprintf(__('You have to <a href="%s">create</a> first some members.', 'hegspots'), URL::to('member_create')); ?>
+				</p>
+				<?php endif; ?>
+			</div>
+
+			<div class="form-field">
+				<div id="map" class="map"></div>
+				<input type="hidden" id="map__lng" name="map__lng" value="">
+				<input type="hidden" id="map__lat" name="map__lat" value="">
+			</div>
+
+			<div class="form-field">
+				<button type="submit" class="button button-primary button-large"><?php _e('Save place','hegspots') ?></button>
 			</div>
 
 		</form>

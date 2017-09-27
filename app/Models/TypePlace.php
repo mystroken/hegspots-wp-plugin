@@ -2,8 +2,6 @@
 
 namespace App\Models;
 
-use \WeDevs\ORM\Eloquent\Model;
-
 class TypePlace extends Model
 {
     /**
@@ -47,20 +45,11 @@ class TypePlace extends Model
         return $this->hasMany(Place::class, 'type_place_id');
     }
 
-    /**
-     * Overide parent method to make sure prefixing is correct.
-     *
-     * @return string
-     */
-    public function getTable()
+
+    public function getPhotoAttribute()
     {
-        //In this example, it's set, but this is better in an abstract class
-        if( isset( $this->table ) ){
-            $prefix =  $this->getConnection()->db->prefix;
-            return $prefix . $this->table;
+    	if( !empty($this->photo) ) return $this->photo;
 
-        }
-
-        return parent::getTable();
+    	return config('type_default_photo');
     }
 }

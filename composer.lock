@@ -652,18 +652,20 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/vitaminframework/framework.git",
-                "reference": "5c45c571518d71457bef7e14e3a7f881d41178de"
+                "reference": "32666b57c3f48cb948d7779ce172c5628f6b746d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/vitaminframework/framework/zipball/5c45c571518d71457bef7e14e3a7f881d41178de",
-                "reference": "5c45c571518d71457bef7e14e3a7f881d41178de",
+                "url": "https://api.github.com/repos/vitaminframework/framework/zipball/32666b57c3f48cb948d7779ce172c5628f6b746d",
+                "reference": "32666b57c3f48cb948d7779ce172c5628f6b746d",
                 "shasum": ""
             },
             "require": {
                 "illuminate/container": "5.0.*",
                 "php": ">=5.6",
-                "symfony/http-foundation": "^3.3.6"
+                "symfony/http-foundation": "^3.3.6",
+                "wordpruss/notices": "dev-master",
+                "wordpruss/shortcodes": "dev-master"
             },
             "require-dev": {
                 "phpunit/phpunit": "5.7",
@@ -699,7 +701,157 @@
                 "wordpress",
                 "wordpress-development"
             ],
-            "time": "2017-08-26 05:22:11"
+            "time": "2017-09-06 05:11:53"
+        },
+        {
+            "name": "wordpruss/contracts",
+            "version": "v1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/wordpruss/contracts.git",
+                "reference": "81c435b111277fff045aee08ed04821cce523a72"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/wordpruss/contracts/zipball/81c435b111277fff045aee08ed04821cce523a72",
+                "reference": "81c435b111277fff045aee08ed04821cce523a72",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4"
+            },
+            "type": "library",
+            "autoload": {
+                "files": [],
+                "psr-4": {
+                    "WordPruss\\Contracts\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Mystro Ken",
+                    "email": "mystroken@gmail.com",
+                    "homepage": "http://mystroken.cm",
+                    "role": "Lead Developer"
+                }
+            ],
+            "description": "A couple of interfaces that set common behaviors between the wordpruss classes.",
+            "homepage": "https://github.com/wordpruss/contracts",
+            "keywords": [
+                "php",
+                "php-library",
+                "wordpress",
+                "wordpress-development"
+            ],
+            "time": "2017-09-04T05:26:48+00:00"
+        },
+        {
+            "name": "wordpruss/notices",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/wordpruss/notices.git",
+                "reference": "009b577340b1fc321e326ccf5ace009ca6783fa6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/wordpruss/notices/zipball/009b577340b1fc321e326ccf5ace009ca6783fa6",
+                "reference": "009b577340b1fc321e326ccf5ace009ca6783fa6",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.5.9",
+                "wordpruss/contracts": "~1.0.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "5.7",
+                "satooshi/php-coveralls": "dev-master"
+            },
+            "type": "library",
+            "autoload": {
+                "files": [],
+                "psr-4": {
+                    "WordPruss\\Notices\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Mystro Ken",
+                    "email": "mystroken@gmail.com",
+                    "homepage": "http://mystroken.cm",
+                    "role": "Lead Developer"
+                }
+            ],
+            "description": "An Object-Oriented Wrap for notices displayed near the top of admin pages on WordPress.",
+            "homepage": "https://github.com/wordpruss/notices",
+            "keywords": [
+                "notices",
+                "php",
+                "php-library",
+                "wordpress",
+                "wordpress-development"
+            ],
+            "time": "2017-09-06 05:32:10"
+        },
+        {
+            "name": "wordpruss/shortcodes",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/wordpruss/shortcodes.git",
+                "reference": "67c370d0c21d4a6ae652fddcd3f7d61a53c453c5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/wordpruss/shortcodes/zipball/67c370d0c21d4a6ae652fddcd3f7d61a53c453c5",
+                "reference": "67c370d0c21d4a6ae652fddcd3f7d61a53c453c5",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.5.9",
+                "wordpruss/contracts": "~1.0.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "5.7",
+                "satooshi/php-coveralls": "dev-master"
+            },
+            "type": "library",
+            "autoload": {
+                "files": [],
+                "psr-4": {
+                    "WordPruss\\Shortcodes\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Mystro Ken",
+                    "email": "mystroken@gmail.com",
+                    "homepage": "http://mystroken.cm",
+                    "role": "Lead Developer"
+                }
+            ],
+            "description": "An Object-Oriented Wrap for friendly handle wordpress shortcodes.",
+            "homepage": "https://github.com/wordpruss/shortcodes",
+            "keywords": [
+                "php",
+                "php-library",
+                "shortcodes",
+                "wordpress",
+                "wordpress-development"
+            ],
+            "time": "2017-09-06 04:55:48"
         },
         {
             "name": "wordpruss/wordpruss",

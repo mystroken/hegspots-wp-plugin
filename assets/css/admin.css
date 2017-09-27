@@ -27,10 +27,10 @@
 }
 
 /**
-*  
+*
 * 	Partials/variables
 *
-* 	File containing variables that help 
+* 	File containing variables that help
 * 	the stylesheet project personalization.
 * 	MUST NEVER GENERATE ANY CODE!
 *
@@ -468,7 +468,7 @@
 .columns {
   display: -ms-grid;
   display: grid;
-  grid-gap: 1.5rem;
+  grid-gap: 3rem;
   -ms-grid-columns: 1fr;
   grid-template-columns: 1fr;
 }
@@ -478,4 +478,8 @@
     -ms-grid-columns: 1fr 1fr;
     grid-template-columns: 1fr 1fr;
   }
+}
+
+.map {
+  height: 50vh;
 }

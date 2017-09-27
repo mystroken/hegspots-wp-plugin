@@ -11,6 +11,8 @@
 
 use Vitaminate\Routing\RouteCollection;
 use Vitaminate\Routing\AdminRoute;
+use Vitaminate\Routing\Route;
+use App\Models\Options;
 
 $routeCollection = new RouteCollection();
 
@@ -38,7 +40,6 @@ $routeCollection->add('place_index',
         [ 'page' => 'heg-spots-places.php' ]
     )
 );
-
 
 // Type Of Places
 
@@ -102,6 +103,43 @@ $routeCollection->add('options_index',
     new AdminRoute(
         'App\Http\Controllers\Admin\OptionsController@index',
         [ 'page' => 'heg-spots-options.php' ]
+    )
+);
+
+
+/*
+|-----------------------------------
+| Route for front
+|-----------------------------------
+*/
+
+$routeCollection->add('front_home',
+    new Route(
+    	'/',
+        'App\Http\Controllers\Admin\PlaceController@front',
+        [
+        	'p' => Options::getPageID('home')
+    	]
+    )
+);
+
+$routeCollection->add('front_places',
+    new Route(
+    	'/',
+        'App\Http\Controllers\Admin\PlaceController@front',
+        [
+        	'p' => Options::getPageID('places')
+    	]
+    )
+);
+
+$routeCollection->add('front_members',
+    new Route(
+    	'/',
+        'App\Http\Controllers\Admin\PlaceController@front',
+        [
+        	'p' => Options::getPageID('members')
+    	]
     )
 );
 

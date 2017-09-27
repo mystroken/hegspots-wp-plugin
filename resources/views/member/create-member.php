@@ -11,7 +11,7 @@ use \Vitaminate\Routing\URL; ?>
 
 	<div class="form-wrap form-wrap--small">
 
-		<form action="<?php echo URL::to('member_index'); ?>" method="post">
+		<form action="<?php echo URL::to('member_create')->with('noheader', true); ?>" method="post">
 
 			<div class="columns">
 				<div class="avatar-wrapper">

@@ -1,3 +1,10 @@
+<?php 
+use WordPruss\Notices\Notify; 
+
+
+Notify::success('Dashboard page successfully displayed!');
+Notify::hook();
+?>
 <div class="wrap about-wrap patterns-overview-wrap">
 	<h1>
 		<?php _e('Welcome to Heg Spots', 'hegspots'); ?>

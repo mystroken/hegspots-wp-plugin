@@ -1,4 +1,4 @@
-<?php 
+<?php
 use \Vitaminate\Routing\URL; ?>
 
 <div class="wrap nosubsub">
@@ -18,10 +18,12 @@ use \Vitaminate\Routing\URL; ?>
 <div class="form-wrap">
 	<h2><?php _e('Add a new type of place', 'hegspots'); ?></h2>
 	<form id="addtypeofplace" method="post" action="<?php echo URL::to('type_of_place_index'); ?>" class="validate">
-		<div class="form-field form-required term-name-wrap">
-			<label for="photo"><?php _e('Picture', 'hegspots'); ?></label>
-			<input name="photo" id="photo" type="text" aria-required="true" required>
+		<div class="form-field">
 			<p><?php _e('The picture of the type of place.', 'hegspots'); ?></p>
+			<img id="type__img__photo" src="<?php echo config('type_default_photo'); ?>" alt="Default avatar">
+			<input type="hidden" name="photo" id="type__input__photo" value="<?php echo config('type_default_photo'); ?>">
+			<br>
+			<a href="#" id="type__link__select-photo"><?php _e('Change icon','hegspots') ?></a>
 		</div>
 		<div class="form-field form-required term-name-wrap">
 			<label for="name"><?php _e('Name', 'hegspots'); ?></label>
@@ -77,7 +79,7 @@ use \Vitaminate\Routing\URL; ?>
 
 				<tbody id="the-list">
 				<?php if(count($typesOfPlace) > 0): ?>
-					
+
 					<?php foreach ($typesOfPlace as $typeOfPlace): ?>
 					<tr>
 						<th scope="row" class="check-column">&nbsp;</th>
@@ -141,7 +143,7 @@ use \Vitaminate\Routing\URL; ?>
 				</tfoot>
 
 			</table>
-	
+
 			<br class="clear">
 		</form>
 

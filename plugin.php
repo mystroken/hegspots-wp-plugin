@@ -63,6 +63,7 @@ load_plugin_textdomain('hegspots', false, basename( dirname( __FILE__ ) ) . '/re
 */
 use Vitaminate\Foundation\Application;
 use Vitaminate\Http\Request;
+use WordPruss\Notices\Notify;
 
 /**
  * @var Application $app
@@ -94,7 +95,8 @@ require_once __DIR__ . '/app/Wordpress/Enqueue.php';
 require_once __DIR__ . '/app/Wordpress/Shortcodes.php';
 require_once __DIR__ . '/app/Wordpress/Admin/Panels.php';
 
-/*
+
+/**
 |--------------------------------------------------------------------------
 | Attaches Plugin LifeCycle Hooks.
 |--------------------------------------------------------------------------
@@ -106,7 +108,7 @@ $deactivation_file = dirname(__FILE__) . '/deactivate.php';
 $uninstall_file    = dirname(__FILE__) . '/uninstall.php';
 
 if(
-	   !file_exists( $activation_file )
+  !file_exists( $activation_file )
 	OR !file_exists( $deactivation_file )
 	OR !file_exists( $uninstall_file )
 ){

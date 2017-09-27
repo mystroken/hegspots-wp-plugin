@@ -2,7 +2,6 @@
 
 namespace App\Models;
 
-use \WeDevs\ORM\Eloquent\Model;
 
 class Activity extends Model
 {
@@ -45,22 +44,5 @@ class Activity extends Model
     public function members()
     {
         return $this->belongsToMany(Member::class, $wpdb->prefix.'hegspots_members_activities', 'activity_id', 'member_id');
-    }
-
-    /**
-     * Overide parent method to make sure prefixing is correct.
-     *
-     * @return string
-     */
-    public function getTable()
-    {
-        //In this example, it's set, but this is better in an abstract class
-        if( isset( $this->table ) ){
-            $prefix =  $this->getConnection()->db->prefix;
-            return $prefix . $this->table;
-
-        }
-
-        return parent::getTable();
     }
 }
