@@ -6,6 +6,7 @@ jQuery(function($){
 
   handleFilterReloading(filterType, 'type');
   handleFilterReloading(filterLocation, 'location');
+  handlePaginationFromURL();
 
 
   function handleFilterReloading(filter, urlKey){
@@ -14,12 +15,17 @@ jQuery(function($){
       let
           key = urlKey,
           value = $(this).find('option:selected').val(),
-          location = updateUrlParameter(window.location.href, key, value)
+          location = handlePaginationFromURL(updateUrlParameter(window.location.href, key, value))
       ;
 
       window.location.href = location;
     });
 
+  }
+
+
+  function handlePaginationFromURL(url){
+    return updateUrlParameter(url, 'page', '1');
   }
 
 

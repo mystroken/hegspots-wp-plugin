@@ -60,4 +60,30 @@ class Place extends Model
 		$prefix =  $this->getConnection()->db->prefix;
 		return $this->belongsToMany(Member::class, $prefix.'hegspots_members_recommandations', 'place_id', 'member_id');
 	}
+
+	/**
+     * Scope a query to only include users of a given type.
+     *
+     * @param \Illuminate\Database\Eloquent\Builder $query
+     * @param mixed $type
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
+    public function scopeFromFilter($query, $type = null, $location = null)
+    {
+    	if( !is_null($type) && !is_null($location) )
+    	{
+    		return $query->where('type_place_id', $type)->where('location_id', $location);
+    	}
+    	elseif ( !is_null($type) )
+    	{
+    		return $query->where('type_place_id', $type);
+    	}
+    	elseif ( !is_null($location) )
+    	{
+    		return $query->where('location_id', $location);
+    	}
+
+    	return $query;
+    }
+
 }

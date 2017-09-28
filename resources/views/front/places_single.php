@@ -9,7 +9,7 @@ use \Vitaminate\Routing\URL; ?>
 			<a href="<?php echo URL::to('front_places')->with('type', $place->type->ID); ?>">
 				<?php echo strtoupper($place->type->name); ?>
 			</a>,&nbsp;
-			<a href="<?php echo URL::to('front_places')->with('location', $place->location->ID); ?>">
+			<a href="<?php echo URL::to('front_places')->with('location', $place->location->ID)->with('type', null); ?>">
 				<?php echo strtoupper($place->location->town); ?>
 			</a>
 		</div>
@@ -37,7 +37,7 @@ use \Vitaminate\Routing\URL; ?>
 			<div class="grid-container">
 			<?php foreach($nearbyPlaces as $place ): ?>
 				<div class="card card--bordered">
-				    <a class="card__image" href="<?php echo URL::to('front_places')->with('item',$place->ID); ?>" title="<?php echo $place->name; ?>">
+				    <a class="card__image" href="<?php echo URL::to('front_places')->with('item',$place->ID)->with('location', null); ?>" title="<?php echo $place->name; ?>">
 				    	<img src="<?php echo $place->photo; ?>" alt="<?php echo $place->name; ?>">
 				    </a><!-- ./card__image -->
 				    <div class="card__content card__content--centered">

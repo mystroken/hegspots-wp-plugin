@@ -41,7 +41,7 @@ $placesShortcode->handle(function($atts, $content) use ($app, $request, $view) {
 	$currentTypeFilter = $request->query->get('type');
 	$currentLocationFilter = $request->query->get('location');
 	$page = (get_query_var('page')) ? get_query_var('page') : 1;
-	$perPage = 12;
+	$perPage = 2;
 	$itemID = $request->query->get('item');
 
 
@@ -52,34 +52,27 @@ $placesShortcode->handle(function($atts, $content) use ($app, $request, $view) {
 	*/
 	if( is_null($itemID) )
 	{
-		if( !is_null($currentTypeFilter) && !is_null($currentLocationFilter) ){
-			$places = Place::where('type_place_id', $currentTypeFilter)->where('location_id', $currentLocationFilter)->forPage($page, $perPage)->orderBy('ID', 'desc')->get();
-		}
-		elseif ( !is_null($currentTypeFilter) ){
-			$places = Place::where('type_place_id', $currentTypeFilter)->forPage($page, $perPage)->orderBy('ID', 'desc')->get();
-		}
-		elseif ( !is_null($currentLocationFilter) ){
-			$places = Place::where('location_id', $currentLocationFilter)->forPage($page, $perPage)->orderBy('ID', 'desc')->get();
-		}
-		else {
-			$places = Place::forPage($page, $perPage)->orderBy('ID', 'desc')->get();
-		}
+		$places = Place::fromFilter($currentTypeFilter, $currentLocationFilter)->forPage($page, $perPage)->orderBy('ID', 'desc')->get();
 
+		$total = Place::fromFilter($currentTypeFilter, $currentLocationFilter)->count();
+		$totalQuery = $places->count();
 		$locations = Location::orderBy('slug', 'asc')->get();
 		$types = TypePlace::orderBy('name', 'asc')->get();
-
-
-		//$randomPlace = Place::orderByRaw("RAND()")->first();
 
 
 		$view->load(
 			'front.places',
 			[
-				'places' => $places,
+				'places'    => $places,
 				'locations' => $locations,
-				'types' => $types,
-				'currentTypeFilter' => $currentTypeFilter,
+				'types'     => $types,
+				'currentTypeFilter'     => $currentTypeFilter,
 				'currentLocationFilter' => $currentLocationFilter,
+				'total'     => $total,
+				'totalQuery'=> $totalQuery,
+				'perPage'   => $perPage,
+				'page'      => $page,
+				'isThereNext' => $total - ( (($page - 1) * $perPage) + $totalQuery) > 0,
 			]
 		);
 	}
