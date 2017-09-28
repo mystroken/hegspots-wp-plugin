@@ -1,4 +1,5 @@
 <?php
+use App\Models\Options;
 
 // Register style sheet.
 add_action( 'wp_enqueue_scripts', 'register_plugin_front_scripts' );
@@ -6,15 +7,21 @@ add_action( 'admin_enqueue_scripts', 'register_plugin_admin_scripts' );
 
 function register_plugin_front_scripts($hook)
 {
-	wp_enqueue_style( 'hegspots-front-style', asset('css/style.css'), [], '1.4');
+	global $post;
+	$pages = Options::getPages();
 
-	wp_enqueue_script(
-	    'hegspots-front-script',
-	    asset('js/src/front/app.js'),
-	    array('jquery'),
-	    '1.3',
-	    true
-	);
+	if( !empty(array_search($post->ID, $pages)) )
+	{
+		wp_enqueue_style( 'hegspots-front-style', asset('css/style.css'), [], '1.4');
+
+		wp_enqueue_script(
+		    'hegspots-front-script',
+		    asset('js/src/front/app.js'),
+		    array('jquery'),
+		    '1.3',
+		    true
+		);
+	}
 }
 
 /**
