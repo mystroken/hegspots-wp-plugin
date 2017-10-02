@@ -43,6 +43,7 @@ class Activity extends Model
 
     public function members()
     {
+    	global $wpdb;
         return $this->belongsToMany(Member::class, $wpdb->prefix.'hegspots_members_activities', 'activity_id', 'member_id');
     }
 }

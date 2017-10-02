@@ -2,14 +2,16 @@ jQuery(function($){
 
   let
     filterType = $('#hegspots-filter__type'),
+    filterActivity = $('#hegspots-filter__activity'),
     filterLocation = $('#hegspots-filter__location'),
     linkLoadMore = $('#hegspots-loadMoreLink')
   ;
 
   handleFilterReloading(filterType, 'type');
   handleFilterReloading(filterLocation, 'location');
+  handleFilterReloading(filterActivity, 'activity');
 
-  linkLoadMore.on('click', loadMorePlaces);
+  //linkLoadMore.on('click', loadMorePlaces);
 
 
   function loadMorePlaces(event){

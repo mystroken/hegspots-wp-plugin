@@ -78,9 +78,9 @@ class Place extends Model
     	{
     		return $query->where('type_place_id', $type);
     	}
-    	elseif ( !is_null($location) )
+    	elseif ( !is_null($locationID) )
     	{
-    		return $query->where('location_id', $location);
+    		return $query->where('location_id', $locationID);
     	}
 
     	return $query;

@@ -6,6 +6,8 @@ use WeDevs\ORM\WP\Post;
 
 class Options
 {
+	const PERPAGE = 12;
+
 	/**
 	 * @var string $pagesKeyName
 	 */

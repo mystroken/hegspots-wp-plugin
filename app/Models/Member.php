@@ -62,4 +62,25 @@ class Member extends Model
         return $this->belongsToMany(Place::class, $prefix.'hegspots_members_recommandations', 'member_id', 'place_id');
     }
 
+
+    public function scopeFromFilter($query, $activityID = null, $locationID = null)
+    {
+    	if( !is_null($activityID) && !is_null($locationID) )
+    	{
+    		$activity = Activity::find($activityID);
+    		return $activity->members()->where('location_id',$locationID);
+    	}
+    	elseif ( !is_null($activityID) )
+    	{
+    		$activity = Activity::find($activityID);
+    		return $activity->members();
+    	}
+    	elseif ( !is_null($locationID) )
+    	{
+    		return $query->where('location_id', $locationID);
+    	}
+
+    	return $query;
+    }
+
 }
