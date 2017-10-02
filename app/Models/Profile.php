@@ -44,4 +44,16 @@ class Profile extends Model
     {
         return $this->hasOne(Member::class, 'profile_id');
     }
+
+
+    public function getCoverAttribute($value)
+    {
+    	return (!empty($value))?$value:config('member_default_cover');
+    }
+
+
+    public function getPhotoAttribute($value)
+    {
+    	return (!empty($value))?$value:config('member_default_avatar');
+    }
 }

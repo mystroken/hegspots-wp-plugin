@@ -61,6 +61,20 @@ class MemberListTable extends AbstractListTable
         return $columns;
     }
 
+	function column_name( $item )
+	{
+		// create a nonce
+		$delete_nonce = wp_create_nonce( 'hegspots_delete_item' );
+
+		$title = '<a href="'.URL::to('member_edit')->with('item', absint($item['ID'])).'"><strong>'.$item['name'].'</strong></a>';
+
+		$actions = [
+			'delete' => sprintf( '<a href="?page=%s&action=%s&item=%s&_wpnonce=%s&noheader=1">'.__('Delete', 'hegspots').'</a>', esc_attr( $_REQUEST['page'] ), 'delete', absint( $item['ID'] ), $delete_nonce )
+		];
+
+		return $title . $this->row_actions( $actions );
+	}
+
     /**
      * Columns to make sortable.
      *

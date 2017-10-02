@@ -67,6 +67,13 @@ $routeCollection->add('type_of_place_index',
 
 // Members
 
+$routeCollection->add('member_edit',
+    new AdminRoute(
+        'App\Http\Controllers\Admin\MemberController@editMember',
+        [ 'page' => 'heg-spots-members.php', 'action' => 'edit-member' ]
+    )
+);
+
 $routeCollection->add('member_create',
     new AdminRoute(
         'App\Http\Controllers\Admin\MemberController@createMember',
