@@ -1,21 +1,36 @@
 jQuery(function($){
 
-  let filterType = $('#hegspots-filter__type'),
-      filterLocation = $('#hegspots-filter__location')
+  let
+    filterType = $('#hegspots-filter__type'),
+    filterLocation = $('#hegspots-filter__location'),
+    linkLoadMore = $('#hegspots-loadMoreLink')
   ;
 
   handleFilterReloading(filterType, 'type');
   handleFilterReloading(filterLocation, 'location');
-  handlePaginationFromURL();
 
+  linkLoadMore.on('click', loadMorePlaces);
+
+
+  function loadMorePlaces(event){
+    let
+      link = event.target,
+      url = link.href
+    ;
+
+    event.preventDefault();
+    history.pushState({}, 'Test', url);
+
+    return false;
+  }
 
   function handleFilterReloading(filter, urlKey){
 
     filter.on('change', function(event){
       let
-          key = urlKey,
-          value = $(this).find('option:selected').val(),
-          location = handlePaginationFromURL(updateUrlParameter(window.location.href, key, value))
+        key = urlKey,
+        value = $(this).find('option:selected').val(),
+        location = handlePaginationFromURL(updateUrlParameter(window.location.href, key, value))
       ;
 
       window.location.href = location;

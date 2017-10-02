@@ -27,13 +27,35 @@ class PlaceController extends Controller
 
 	public function create(Request $request)
 	{
+		$place = new Place;
+		$this->createOrUpdate($place, $request);
+	}
 
+
+	public function edit(Request $request)
+	{
+		$placeID = intval($request->query->get('item'));
+		$place = Place::find($placeID);
+
+		if( !is_null($place) )
+		{
+			$this->createOrUpdate($place, $request);
+		}
+		else
+		{
+			Redirect::to(URL::to('place_index'));
+		}
+	}
+
+
+	/**
+	 * Manage the creation or updating of a place
+	 */
+	protected function createOrUpdate(Place $place, Request $request)
+	{
 		if( !empty($request->request->all()) )
 		{
-
-			$place = new Place;
 			$slugger = new Slugger;
-
 
 			// Location
 			$location = Location::createFromRequest($request);
@@ -60,10 +82,21 @@ class PlaceController extends Controller
 
 
 			// Save the place
-			if( $place->save() )
+			if( $place->ID > 0 )
 			{
-				$place->recommandators()->attach($recommendators);
+				// Updating
+				$place->recommandators()->sync($recommendators);
+				$place->update();
 				Redirect::to(URL::to('place_index'));
+			}
+			else
+			{
+				// Saving
+				if( $place->save() )
+				{
+					$place->recommandators()->sync($recommendators);
+					Redirect::to(URL::to('place_index'));
+				}
 			}
 
 		}
@@ -75,6 +108,7 @@ class PlaceController extends Controller
 			[
 				'types'   => $types,
 				'members' => $members,
+				'place' => $place,
 			]
 		);
 	}

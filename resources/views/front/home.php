@@ -48,7 +48,7 @@ use App\Models\Place;  ?>
 					<span><?php _e('Members', 'hegspots'); ?> (<?php echo $membersNum; ?>)</span>
 				</a>
 			<?php foreach($placeTypes as $type): ?>
-				<a href="<?php echo URL::to('front_places')->with('type',$type->slug); ?>" class="explore-nav">
+				<a href="<?php echo URL::to('front_places')->with('type',$type->ID)->with('item',null)->with('location',null); ?>" class="explore-nav">
 					<img src="<?php echo $type->photo; ?>" alt="<?php echo $type->name; ?>">
 					<span><?php echo ucfirst($type->name); ?> (<?php echo Place::where('type_place_id', $type->ID)->count(); ?>)</span>
 				</a>

@@ -7,6 +7,7 @@ use WeDevs\ORM\Eloquent\Database;
 abstract class AbstractListTable extends \WP_List_Table
 {
     protected static $tableName = '';
+    protected static $redirectTo = '';
 
     /**
      * Class constructor
@@ -65,7 +66,7 @@ abstract class AbstractListTable extends \WP_List_Table
         $title = '<strong>' . $item['name'] . '</strong>';
 
         $actions = [
-            'delete' => sprintf( '<a href="?page=%s&action=%s&item=%s&_wpnonce=%s">'.__('Delete', 'hegspots').'</a>', esc_attr( $_REQUEST['page'] ), 'delete', absint( $item['ID'] ), $delete_nonce )
+            'delete' => sprintf( '<a href="?page=%s&action=%s&item=%s&_wpnonce=%s&noheader=1">'.__('Delete', 'hegspots').'</a>', esc_attr( $_REQUEST['page'] ), 'delete', absint( $item['ID'] ), $delete_nonce )
         ];
 
         return $title . $this->row_actions( $actions );
@@ -123,7 +124,7 @@ abstract class AbstractListTable extends \WP_List_Table
         /** Process bulk action */
         $this->process_bulk_action();
 
-        $per_page     = $this->get_items_per_page( 'hegspots_per_page', 5 );
+        $per_page     = $this->get_items_per_page( 'hegspots_per_page', 12 );
         $current_page = $this->get_pagenum();
         $total_items  = static::countRecords();
 
@@ -150,8 +151,10 @@ abstract class AbstractListTable extends \WP_List_Table
             else {
                 static::deleteRecord( absint( $_GET['item'] ) );
 
-                wp_redirect( esc_url( add_query_arg() ) );
-                exit;
+                if( !empty(static::$redirectTo) )
+                {
+                	wp_redirect( static::$redirectTo ); exit;
+                }
             }
 
         }

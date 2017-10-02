@@ -5,6 +5,7 @@ namespace App\Wordpress\Admin\ListTable;
 use App\Models\Location;
 use App\Models\TypePlace;
 use WeDevs\ORM\Eloquent\Database;
+use Vitaminate\Routing\URL;
 
 class PlaceListTable extends AbstractListTable
 {
@@ -20,6 +21,8 @@ class PlaceListTable extends AbstractListTable
             'plural'   => __( 'Places', 'hegspots' ),
             'ajax'     => false
         ]);
+
+        static::$redirectTo = URL::to('place_index');
 
     }
 
@@ -37,10 +40,14 @@ class PlaceListTable extends AbstractListTable
         {
             /** @var Location $location */
             $location = Location::find($item['location_id']);
+
             /** @var TypePlace $typePlace */
             $typePlace = TypePlace::find($item['type_place_id']);
             $items[$key]['location_town'] = $location->town;
             $items[$key]['type_place_name'] = $typePlace->name;
+
+            // Excerpt the description
+            $items[$key]['description'] = excerpt($items[$key]['description']);
         }
 
         return $items;
@@ -62,6 +69,20 @@ class PlaceListTable extends AbstractListTable
         ];
 
         return $columns;
+    }
+
+    function column_name( $item )
+    {
+        // create a nonce
+        $delete_nonce = wp_create_nonce( 'hegspots_delete_item' );
+
+        $title = '<a href="'.URL::to('place_edit')->with('item', absint($item['ID'])).'"><strong>'.$item['name'].'</strong></a>';
+
+        $actions = [
+            'delete' => sprintf( '<a href="?page=%s&action=%s&item=%s&_wpnonce=%s&noheader=1">'.__('Delete', 'hegspots').'</a>', esc_attr( $_REQUEST['page'] ), 'delete', absint( $item['ID'] ), $delete_nonce )
+        ];
+
+        return $title . $this->row_actions( $actions );
     }
 
     /**

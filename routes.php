@@ -27,6 +27,13 @@ $routeCollection->add('dashboard_index',
 
 // Places
 
+$routeCollection->add('place_edit',
+    new AdminRoute(
+        'App\Http\Controllers\Admin\PlaceController@edit',
+        [ 'page' => 'heg-spots-places.php', 'action' => 'edit' ]
+    )
+);
+
 $routeCollection->add('place_create',
     new AdminRoute(
         'App\Http\Controllers\Admin\PlaceController@create',

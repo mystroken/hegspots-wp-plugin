@@ -16,3 +16,11 @@ if( !function_exists('config') )
 		return $config[$name];
 	}
 }
+
+if( !function_exists('excerpt') )
+{
+	function excerpt($text)
+	{
+		return substr($text, 0, 137);
+	}
+}

@@ -73,7 +73,7 @@ use \Vitaminate\Routing\URL; ?>
 	<section class="section">
 		<div class="section__content">
 			<div class="hegspots-paginate">
-				<a href="<?php echo URL::to('front_places')->with('page',++$page)->with('item',null)->with('type', $currentTypeFilter)->with('location', $currentLocationFilter); ?>">
+				<a id="hegspots-loadMoreLink" href="<?php echo URL::to('front_places')->with('page',++$page)->with('item',null)->with('type', $currentTypeFilter)->with('location', $currentLocationFilter); ?>">
 					<?php _e('Load more items', 'hegspots'); ?>
 				</a>
 			</div>

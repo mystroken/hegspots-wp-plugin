@@ -4,9 +4,11 @@ var map;
 var markers = [];
 
 function initialize() {
-  var initialPosition = { lat: 3.861808, lng: 11.507865 };
-  var inputLng = document.getElementById('map__lng');
-  var inputLat = document.getElementById('map__lat');
+  var
+    inputLng = document.getElementById('map__lng'),
+    inputLat = document.getElementById('map__lat'),
+    initialPosition = { lat: inputLat.value, lng: inputLng.value }
+  ;
 
   map = new google.maps.Map(document.getElementById('map'), {
     zoom: 12,

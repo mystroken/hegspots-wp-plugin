@@ -4,6 +4,7 @@ namespace App\Wordpress\Admin\ListTable;
 
 use App\Models\Location;
 use WeDevs\ORM\Eloquent\Database;
+use Vitaminate\Routing\URL;
 
 class MemberListTable extends AbstractListTable
 {
@@ -20,6 +21,7 @@ class MemberListTable extends AbstractListTable
             'ajax'     => false
         ]);
 
+        static::$redirectTo = URL::to('member_index');
     }
 
     public static function getRecords($perPage = 5, $pageNumber = 1)

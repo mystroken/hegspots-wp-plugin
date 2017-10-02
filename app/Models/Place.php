@@ -68,11 +68,11 @@ class Place extends Model
      * @param mixed $type
      * @return \Illuminate\Database\Eloquent\Builder
      */
-    public function scopeFromFilter($query, $type = null, $location = null)
+    public function scopeFromFilter($query, $type = null, $locationID = null)
     {
-    	if( !is_null($type) && !is_null($location) )
+    	if( !is_null($type) && !is_null($locationID) )
     	{
-    		return $query->where('type_place_id', $type)->where('location_id', $location);
+    		return $query->where('type_place_id',$type)->where('location_id',$locationID);
     	}
     	elseif ( !is_null($type) )
     	{
@@ -84,6 +84,12 @@ class Place extends Model
     	}
 
     	return $query;
+    }
+
+
+    public function getPhotoAttribute($value)
+    {
+        return (!empty($value))?$value:config('place_default_photo');
     }
 
 }
