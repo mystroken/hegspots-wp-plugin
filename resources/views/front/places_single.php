@@ -51,7 +51,7 @@ use \Vitaminate\Routing\URL; ?>
 				        <div class="place-recommendations">
 				        	<span><?php _e('Recommended by', 'hegspots'); ?></span>&nbsp;&nbsp;
 			        	<?php foreach( $place->recommandators as $member ): ?>
-    		        		<a href="#" title="<?php echo $member->name; ?>">
+    		        		<a href="<?php echo URL::to('front_members')->with('item',$member->ID)->with('type',null); ?>" title="<?php echo $member->name; ?>">
     		        			<img src="<?php echo $member->profile->photo; ?>" class="pic pic__thumb pic--rounded" alt="<?php _e('by member', 'hegspots'); ?> <?php echo $member->name; ?>">
     		        		</a>
     		        	<?php endforeach; ?>

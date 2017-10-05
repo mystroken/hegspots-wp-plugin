@@ -33,32 +33,32 @@ use \Vitaminate\Routing\URL; ?>
 	    		<div class="hegspots-profile">
 
 	    			<div class="hegspots-profile__item">
-	    				<div class="hegspots-profile__item__title">Brand</div>
+	    				<div class="hegspots-profile__item__title"><?php _e('Brand','hegspots'); ?></div>
 	    				<div><?php echo $member->profile->brand; ?></div>
 	    			</div>
 
 	    			<div class="hegspots-profile__item">
-	    				<div class="hegspots-profile__item__title">Watch</div>
+	    				<div class="hegspots-profile__item__title"><?php _e('Watch','hegspots'); ?></div>
 	    				<div><?php echo $member->profile->watch; ?></div>
 	    			</div>
 
 	    			<div class="hegspots-profile__item">
-	    				<div class="hegspots-profile__item__title">Book</div>
+	    				<div class="hegspots-profile__item__title"><?php _e('Book','hegspots'); ?></div>
 	    				<div><?php echo $member->profile->book; ?></div>
 	    			</div>
 
 	    			<div class="hegspots-profile__item">
-	    				<div class="hegspots-profile__item__title">Style Icon</div>
+	    				<div class="hegspots-profile__item__title"><?php _e('Style Icon','hegspots'); ?></div>
 	    				<div><?php echo $member->profile->style_icon; ?></div>
 	    			</div>
 
 	    			<div class="hegspots-profile__item">
-	    				<div class="hegspots-profile__item__title">Grooming</div>
+	    				<div class="hegspots-profile__item__title"><?php _e('Grooming','hegspots'); ?></div>
 	    				<div><?php echo $member->profile->grooming; ?></div>
 	    			</div>
 
 	    			<div class="hegspots-profile__item">
-	    				<div class="hegspots-profile__item__title">Bag</div>
+	    				<div class="hegspots-profile__item__title"><?php _e('Bag','hegspots'); ?></div>
 	    				<div><?php echo $member->profile->bag; ?></div>
 	    			</div>
 	    		</div>

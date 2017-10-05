@@ -1,10 +1,10 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Heg Spot\n"
-"POT-Creation-Date: 2017-08-15 23:54+0100\n"
-"PO-Revision-Date: 2017-08-16 00:04+0100\n"
+"POT-Creation-Date: 2017-10-05 22:21+0100\n"
+"PO-Revision-Date: 2017-10-05 22:42+0100\n"
 "Last-Translator: \n"
-"Language-Team: \n"
+"Language-Team: Mystro Ken <mystroken@gmail.com>\n"
 "Language: fr_FR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -18,113 +18,439 @@ msgstr ""
 "esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
 "_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
 "X-Poedit-SearchPath-0: app\n"
-"X-Poedit-SearchPath-1: bootstrap\n"
-"X-Poedit-SearchPath-2: config\n"
-"X-Poedit-SearchPath-3: resources\n"
-"X-Poedit-SearchPath-4: config\n"
-"X-Poedit-SearchPath-5: plugin.php\n"
+"X-Poedit-SearchPath-1: resources\n"
+"X-Poedit-SearchPath-2: plugin.php\n"
 "X-Poedit-SearchPathExcluded-0: *.js\n"
 
-#: app/Wordpress/Panels.php:19
-msgid "Heg Spots - Dashboard"
-msgstr "Heg Spots - Dashboard"
+#: app/Wordpress/Admin/ListTable/AbstractListTable.php:51
+msgid "No data available."
+msgstr "Aucune données disponible pour le moment."
 
-#: app/Wordpress/Panels.php:31
-msgid "Places - Heg Spots"
-msgstr "Places - Heg Spots"
+#: app/Wordpress/Admin/ListTable/AbstractListTable.php:69
+#: app/Wordpress/Admin/ListTable/AbstractListTable.php:107
+#: app/Wordpress/Admin/ListTable/MemberListTable.php:72
+#: app/Wordpress/Admin/ListTable/PlaceListTable.php:82
+msgid "Delete"
+msgstr "Supprimer"
 
-#: app/Wordpress/Panels.php:43
-msgid "Types of Place - Heg Spots"
-msgstr "Types de Place - Heg Spots"
+#: app/Wordpress/Admin/ListTable/MemberListTable.php:19
+msgid "Member"
+msgstr "Membre"
 
-#: app/Wordpress/Panels.php:55
-msgid "Members - Heg Spots"
-msgstr "Membres - Heg Spots"
-
-#: app/Wordpress/Panels.php:67
-msgid "Activities - Heg Spots"
-msgstr "Activités - Heg Spots"
-
-#: app/Wordpress/Panels.php:86
-msgid "HEG Spots"
-msgstr "HEG Spots"
-
-#: app/Wordpress/Panels.php:94 resources/views/place/index.php:2
-msgid "Places"
-msgstr "Places"
-
-#: app/Wordpress/Panels.php:100
-msgid "Types of place"
-msgstr "Types de place"
-
-#: app/Wordpress/Panels.php:106
+#: app/Wordpress/Admin/ListTable/MemberListTable.php:20
+#: app/Wordpress/Admin/Panels.php:90 resources/views/front/home.php:47
+#: resources/views/front/home.php:48 resources/views/member/index.php:5
 msgid "Members"
 msgstr "Membres"
 
-#: app/Wordpress/Panels.php:112 resources/views/activity/index.php:2
-msgid "Activities"
-msgstr "Activités"
-
-#: resources/views/activity/index.php:16 resources/views/activity/index.php:24
-msgid "Add a new activity"
-msgstr "Ajouter une nouvelle activité"
-
-#: resources/views/activity/index.php:19 resources/views/activity/index.php:45
-#: resources/views/activity/index.php:102
+#: app/Wordpress/Admin/ListTable/MemberListTable.php:55
+#: app/Wordpress/Admin/ListTable/PlaceListTable.php:64
+#: resources/views/activity/index.php:22 resources/views/activity/index.php:47
+#: resources/views/activity/index.php:104
+#: resources/views/member/create-member.php:32
+#: resources/views/place/create.php:45 resources/views/typeofplace/index.php:29
+#: resources/views/typeofplace/index.php:59
+#: resources/views/typeofplace/index.php:124
 msgid "Name"
 msgstr "Nom"
 
-#: resources/views/activity/index.php:21
+#: app/Wordpress/Admin/ListTable/MemberListTable.php:56
+#: app/Wordpress/Admin/ListTable/PlaceListTable.php:67
+msgid "Location"
+msgstr "Localisation"
+
+#: app/Wordpress/Admin/ListTable/MemberListTable.php:57
+#: app/Wordpress/Admin/ListTable/PlaceListTable.php:68
+msgid "Updated At"
+msgstr "Modifié à"
+
+#: app/Wordpress/Admin/ListTable/MemberListTable.php:58
+msgid "Created At"
+msgstr "Crée à"
+
+#: app/Wordpress/Admin/ListTable/PlaceListTable.php:20
+msgid "Place"
+msgstr "Place"
+
+#: app/Wordpress/Admin/ListTable/PlaceListTable.php:21
+#: app/Wordpress/Admin/Panels.php:78 resources/views/place/index.php:6
+msgid "Places"
+msgstr "Places"
+
+#: app/Wordpress/Admin/ListTable/PlaceListTable.php:65
+msgid "Type place"
+msgstr "Type de place"
+
+#: app/Wordpress/Admin/ListTable/PlaceListTable.php:66
+#: resources/views/place/create.php:55 resources/views/typeofplace/index.php:34
+#: resources/views/typeofplace/index.php:64
+#: resources/views/typeofplace/index.php:129
+msgid "Description"
+msgstr "Description"
+
+#: app/Wordpress/Admin/Panels.php:15
+msgid "Heg Spots - Dashboard"
+msgstr "Heg Spots - Tableau de bord"
+
+#: app/Wordpress/Admin/Panels.php:23
+msgid "Places - Heg Spots"
+msgstr "Places - Heg Spots"
+
+#: app/Wordpress/Admin/Panels.php:31
+msgid "Types of Place - Heg Spots"
+msgstr "Types de Place - Heg Spots"
+
+#: app/Wordpress/Admin/Panels.php:39
+msgid "Members - Heg Spots"
+msgstr "Membres - Heg Spots"
+
+#: app/Wordpress/Admin/Panels.php:47
+msgid "Activities - Heg Spots"
+msgstr "Activités - Heg Spots"
+
+#: app/Wordpress/Admin/Panels.php:55
+msgid "Settings - Heg Spots"
+msgstr "Réglages - Heg Spots"
+
+#: app/Wordpress/Admin/Panels.php:70 resources/views/front/places.php:11
+msgid "HEG Spots"
+msgstr "HEG Spots"
+
+#: app/Wordpress/Admin/Panels.php:84 resources/views/typeofplace/index.php:5
+msgid "Types of place"
+msgstr "Types de place"
+
+#: app/Wordpress/Admin/Panels.php:96 resources/views/activity/index.php:5
+msgid "Activities"
+msgstr "Activités"
+
+#: app/Wordpress/Admin/Panels.php:102
+msgid "HEG Spots Settings"
+msgstr "HEG Spots Réglages"
+
+#: resources/views/activity/index.php:19 resources/views/activity/index.php:27
+msgid "Add a new activity"
+msgstr "Ajouter une nouvelle activité"
+
+#: resources/views/activity/index.php:24
 msgid "The name of the activity."
 msgstr "Le nom de l'activité."
 
-#: resources/views/activity/index.php:40 resources/views/activity/index.php:97
+#: resources/views/activity/index.php:42 resources/views/activity/index.php:99
+#: resources/views/typeofplace/index.php:54
+#: resources/views/typeofplace/index.php:119
 msgid "Select All"
 msgstr "Tout sélectionner"
 
-#: resources/views/activity/index.php:50 resources/views/activity/index.php:107
+#: resources/views/activity/index.php:52 resources/views/activity/index.php:109
+#: resources/views/typeofplace/index.php:69
+#: resources/views/typeofplace/index.php:134
 msgid "Slug"
 msgstr "Identifiant"
 
-#: resources/views/activity/index.php:55 resources/views/activity/index.php:112
+#: resources/views/activity/index.php:57 resources/views/activity/index.php:114
+#: resources/views/typeofplace/index.php:74
+#: resources/views/typeofplace/index.php:139
 msgid "Actions"
 msgstr "Actions"
 
-#: resources/views/activity/index.php:79
+#: resources/views/activity/index.php:81
+#: resources/views/typeofplace/index.php:101
 msgid "delete"
 msgstr "supprimer"
 
-#: resources/views/activity/index.php:88
+#: resources/views/activity/index.php:90
+#: resources/views/typeofplace/index.php:110
 msgid "There is no data yet."
-msgstr "Il n'y a pas encore de données pour le moment."
+msgstr "Il n'y a pas encore de contenu."
 
-#: resources/views/dashboard/index.php:3
+#: resources/views/dashboard/index.php:10
 msgid "Welcome to Heg Spots"
-msgstr "Bienvenue à Heg Spots"
+msgstr "Bienvenue à HEG Spots"
 
-#: resources/views/dashboard/index.php:8
+#: resources/views/dashboard/index.php:15
 msgid ""
 "Your  WordPress Extension to allow you to pusblish some recommended places "
 "from some users."
 msgstr ""
-"Votre Extension WordPress vous permettant de publier des endroits "
-"recommendés par des utilisateurs."
+"Votre extension vous permettant de publier des endroits recommendés par des "
+"utilisateurs."
 
-#: resources/views/dashboard/index.php:13
-msgid "Last updated August 2017, Heg Spots 1.0"
-msgstr "Dernière mise à jour en Août 2017, Heg Spots 1.0"
+#: resources/views/dashboard/index.php:22
+msgid "Overview"
+msgstr "Aperçu"
 
-#: resources/views/place/index.php:3
+#: resources/views/dashboard/index.php:27
+msgid "Shortcut"
+msgstr "Raccourci"
+
+#: resources/views/dashboard/index.php:30 resources/views/place/create.php:10
+msgid "Add a new place"
+msgstr "Ajouter une nouvelle place"
+
+#: resources/views/dashboard/index.php:32
+msgid "Create a new member"
+msgstr "Créer un nouvel utilisateur"
+
+#: resources/views/front/404.php:8
+msgid "HegSpots"
+msgstr "HegSpots"
+
+#: resources/views/front/404.php:11
+msgid "This item does not exist or it already has been deleted."
+msgstr "Cet élément n'existe pas ou alors il a déjà été supprimé."
+
+#: resources/views/front/404.php:16
+msgid "&larr; Return home"
+msgstr "&larr; Retour à l'accueil"
+
+#: resources/views/front/home.php:9
+msgid "The HEG Spots"
+msgstr "The HEG Spots"
+
+#: resources/views/front/home.php:10
+msgid "The Highly Educated Gentlemen's spots"
+msgstr "The Highly Educated Gentlemen's spots"
+
+#: resources/views/front/home.php:27 resources/views/front/home.php:83
+#: resources/views/front/places.php:57
+#: resources/views/front/places_single.php:52
+msgid "Recommended by"
+msgstr "Recommendé par"
+
+#: resources/views/front/home.php:30 resources/views/front/home.php:86
+#: resources/views/front/places.php:60
+#: resources/views/front/places_single.php:55
+msgid "by member"
+msgstr "par le membre"
+
+#: resources/views/front/home.php:41
+msgid "Explore members and recommendations"
+msgstr "Explorez les membres et les recommendations"
+
+#: resources/views/front/home.php:63
+msgid "Latest Recommendations"
+msgstr "Recommendations Récentes"
+
+#: resources/views/front/home.php:98
+msgid "View all places"
+msgstr "Voir toutes les places"
+
+#: resources/views/front/home.php:106 resources/views/front/members.php:11
+msgid "HEG Members"
+msgstr "Membres HEG"
+
+#: resources/views/front/home.php:132
+msgid "View all members"
+msgstr "Voir tous les membres"
+
+#: resources/views/front/members.php:18
+msgid "ALL MEMBERS"
+msgstr "TOUS LES MEMBRES"
+
+#: resources/views/front/members.php:26 resources/views/front/places.php:26
+msgid "BASED IN"
+msgstr "SITUE A"
+
+#: resources/views/front/members.php:29 resources/views/front/places.php:29
+msgid "ALL LOCATION"
+msgstr "TOUS LES ENDROITS"
+
+#: resources/views/front/members.php:68
+msgid "Load more members"
+msgstr "Charger plus de membres"
+
+#: resources/views/front/members_single.php:75
+msgid "Recommended Places"
+msgstr "Endroits Recommendés"
+
+#: resources/views/front/members_single.php:104
+msgid "Other HEG Members"
+msgstr "Autres Membres HEG"
+
+#: resources/views/front/places.php:18
+msgid "ALL PLACES"
+msgstr "TOUTES LES PLACES"
+
+#: resources/views/front/places.php:77
+msgid "Load more items"
+msgstr "Charger plus d'éléments"
+
+#: resources/views/front/places_single.php:32
+msgid "What's Nearby"
+msgstr "Dans les environs"
+
+#: resources/views/member/create-member.php:10
+msgid "Edit a member"
+msgstr "Modifier un membre"
+
+#: resources/views/member/create-member.php:12
+msgid "Add a new member"
+msgstr "Ajouter un nouveau membre"
+
+#: resources/views/member/create-member.php:27
+msgid "Change avatar"
+msgstr "Changer l'avatar"
+
+#: resources/views/member/create-member.php:36
+#: resources/views/place/create.php:37
+msgid "Country"
+msgstr "Pays"
+
+#: resources/views/member/create-member.php:42
+#: resources/views/place/create.php:49
+msgid "Town"
+msgstr "Ville"
+
+#: resources/views/member/create-member.php:46
+msgid "Choose the activities of the member"
+msgstr "Choisir l'activité du membre"
+
+#: resources/views/member/create-member.php:59
+#, php-format
+msgid "You have to <a href=\"%s\">create</a> first some activities."
+msgstr "Vous devez d'abord <a href=\"%s\">créer</a> quelques activités."
+
+#: resources/views/member/create-member.php:67
+msgid "Member's Profile"
+msgstr "Profil du membre"
+
+#: resources/views/member/create-member.php:71
+msgid "Picture Cover"
+msgstr "Photo de couverture"
+
+#: resources/views/member/create-member.php:75
+msgid "Change cover"
+msgstr "Changer la photo de couverture"
+
+#: resources/views/member/create-member.php:79
+msgid "About"
+msgstr "A propos"
+
+#: resources/views/member/create-member.php:94
+msgid "Watch"
+msgstr "Montre"
+
+#: resources/views/member/create-member.php:99
+msgid "Bag"
+msgstr "Sac"
+
+#: resources/views/member/create-member.php:104
+msgid "Book"
+msgstr "Livre"
+
+#: resources/views/member/create-member.php:109
+msgid "Grooming"
+msgstr "Toilettage"
+
+#: resources/views/member/create-member.php:114
+msgid "Style icon"
+msgstr "Style Icône"
+
+#: resources/views/member/create-member.php:119
+msgid "Brand"
+msgstr "Marque"
+
+#: resources/views/member/create-member.php:124
+msgid "Instagram"
+msgstr "Instagram"
+
+#: resources/views/member/create-member.php:130
+msgid "Save member"
+msgstr "Enregistrer le membre"
+
+#: resources/views/member/index.php:7 resources/views/place/index.php:9
 msgid "Add New"
 msgstr "Ajouter"
 
-#: resources/views/place/index.php:9
-msgid "Save"
-msgstr "Enregistrer"
+#: resources/views/options/index.php:3
+#: resources/views/options/page-settings.php:7
+msgid "Settings"
+msgstr "Réglages"
+
+#: resources/views/options/index.php:7
+#: resources/views/options/page-settings.php:11
+msgid "Options"
+msgstr "Options"
+
+#: resources/views/options/index.php:10
+#: resources/views/options/page-settings.php:14
+msgid "Pages"
+msgstr "Pages"
+
+#: resources/views/options/page-settings.php:20
+msgid "Directories"
+msgstr "Repertoires"
+
+#: resources/views/options/page-settings.php:23
+msgid ""
+"Choose a Wordpress page to associate with each directory of Heg Spots "
+"components."
+msgstr ""
+"Veuillez choisir des pages WordPress pour les associer à chacun des "
+"composant de l'extension HEG Spots."
+
+#: resources/views/options/page-settings.php:35
+msgid "None"
+msgstr "Aucun"
+
+#: resources/views/options/page-settings.php:48
+msgid "Display"
+msgstr "Afficher"
+
+#: resources/views/options/page-settings.php:57
+msgid "Save Settings"
+msgstr "Enregistrer les Réglages"
+
+#: resources/views/place/create.php:8
+msgid "Edit a place"
+msgstr "Modifier une place"
+
+#: resources/views/place/create.php:24
+msgid "Change photo"
+msgstr "Changer la photo"
+
+#: resources/views/place/create.php:29
+msgid "Type of place"
+msgstr "Type de place"
+
+#: resources/views/place/create.php:66
+msgid "Recommended by "
+msgstr "Recommendé par"
+
+#: resources/views/place/create.php:80
+#, php-format
+msgid "You have to <a href=\"%s\">create</a> first some members."
+msgstr "Vous devez d'abord <a href=\"%s\">crée</a> quelques membres."
+
+#: resources/views/place/create.php:92
+msgid "Save place"
+msgstr "Enregistrer la place"
+
+#: resources/views/typeofplace/index.php:19
+#: resources/views/typeofplace/index.php:39
+msgid "Add a new type of place"
+msgstr "Ajouter un nouveau type de place"
+
+#: resources/views/typeofplace/index.php:22
+msgid "The picture of the type of place."
+msgstr "L'icone du type de place."
+
+#: resources/views/typeofplace/index.php:26
+msgid "Change icon"
+msgstr "Changer l'icone"
+
+#: resources/views/typeofplace/index.php:31
+msgid "The name of the type of place."
+msgstr "Le nom du type de place."
+
+#: resources/views/typeofplace/index.php:36
+msgid "Some text that describe the type of place."
+msgstr "Description du type de place."
 
 #. Plugin Name of the plugin/theme
 msgid "Heg Spot"
-msgstr "Heg Spot"
+msgstr "HEG Spot"
 
 #. Author of the plugin/theme
 msgid "Mystro Ken"
