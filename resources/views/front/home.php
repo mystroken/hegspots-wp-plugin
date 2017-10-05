@@ -111,11 +111,15 @@ use App\Models\Place;  ?>
 			<div class="grid-container">
 			<?php foreach($latestMembers as $member ): ?>
 				<div class="card card--bordered">
-				    <a class="card__image" href="#">
+				    <a class="card__image" href="<?php echo URL::to('front_members')->with('item', $member->ID); ?>">
 				    	<img src="<?php echo $member->profile->photo; ?>" alt="<?php echo $member->name; ?>">
 				    </a><!-- ./card__image -->
 				    <div class="card__content card__content--centered">
-				    	<h3 class="card__title"><?php echo ucfirst($member->name); ?></h3>
+				    	<h3 class="card__title">
+				    		<a href="<?php echo URL::to('front_members')->with('item',$member->ID); ?>">
+				    			<?php echo ucfirst($member->name); ?>
+				    		</a>
+				    	</h3>
 				    	<div class="card__subtitle"><?php echo $member->location; ?></div>
 				    </div><!-- ./card__content -->
 				</div><!-- ./card -->
@@ -124,7 +128,7 @@ use App\Models\Place;  ?>
 		<?php endif; ?>
 		</div>
 		<footer class="section__footer">
-			<a href="<?php echo URL::to('front_members'); ?>">
+			<a href="<?php echo URL::to('front_members')->with('item',null); ?>">
 				<?php _e('View all members', 'hegspots'); ?>
 			</a>
 		</footer>

@@ -49,7 +49,7 @@ if( false === get_option('hegspots_plugin_installed') )
     slug varchar(255) NOT NULL UNIQUE,
     name varchar(50) NOT NULL,
     profile_id int(10) UNSIGNED DEFAULT NULL,
-    location_id int(10) UNSIGNED NOT NULL,
+    location_id int(10) UNSIGNED NULL,
     instagram varchar(50) DEFAULT NULL,
     created_at timestamp NULL DEFAULT NULL,
     updated_at timestamp NULL DEFAULT NULL,
@@ -90,9 +90,9 @@ if( false === get_option('hegspots_plugin_installed') )
     slug varchar(255) NOT NULL UNIQUE,
     name varchar(100) NOT NULL,
     description text ,
-    photo text, 
+    photo text,
     type_place_id int(10) UNSIGNED NOT NULL,
-    location_id int(10) UNSIGNED NOT NULL,
+    location_id int(10) UNSIGNED NULL,
     map_position_id int(10) UNSIGNED DEFAULT NULL,
     instagram varchar(50) DEFAULT NULL,
     created_at timestamp NULL DEFAULT NULL,
@@ -108,7 +108,7 @@ if( false === get_option('hegspots_plugin_installed') )
 
   $wpdb->query("CREATE TABLE IF NOT EXISTS {$wpdb->prefix}hegspots_profiles (
     ID int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
-    photo varchar(255) DEFAULT NULL, 
+    photo varchar(255) DEFAULT NULL,
     cover varchar(255) DEFAULT NULL,
     about text,
     watch varchar(100) DEFAULT NULL,
@@ -152,8 +152,8 @@ if( false === get_option('hegspots_plugin_installed') )
   // CONTRAINTS
 
   $wpdb->query("ALTER TABLE {$wpdb->prefix}hegspots_members
-    ADD CONSTRAINT {$wpdb->prefix}hegspots_members_location_id_foreign FOREIGN KEY (location_id) REFERENCES {$wpdb->prefix}hegspots_locations (ID),
-    ADD CONSTRAINT {$wpdb->prefix}hegspots_members_profile_id_foreign FOREIGN KEY (profile_id) REFERENCES {$wpdb->prefix}hegspots_profiles (ID);
+    ADD CONSTRAINT {$wpdb->prefix}hegspots_members_location_id_foreign FOREIGN KEY (location_id) REFERENCES {$wpdb->prefix}hegspots_locations (ID) ON DELETE SET NULL,
+    ADD CONSTRAINT {$wpdb->prefix}hegspots_members_profile_id_foreign FOREIGN KEY (profile_id) REFERENCES {$wpdb->prefix}hegspots_profiles (ID) ON DELETE SET NULL;
   ");
 
   $wpdb->query("ALTER TABLE {$wpdb->prefix}hegspots_members_activities
@@ -167,9 +167,9 @@ if( false === get_option('hegspots_plugin_installed') )
   ");
 
   $wpdb->query("ALTER TABLE {$wpdb->prefix}hegspots_places
-    ADD CONSTRAINT {$wpdb->prefix}hegspots_places_location_id_foreign FOREIGN KEY (location_id) REFERENCES {$wpdb->prefix}hegspots_locations (ID),
+    ADD CONSTRAINT {$wpdb->prefix}hegspots_places_location_id_foreign FOREIGN KEY (location_id) REFERENCES {$wpdb->prefix}hegspots_locations (ID) ON DELETE SET NULL,
     ADD CONSTRAINT {$wpdb->prefix}hegspots_places_map_position_id_foreign FOREIGN KEY (map_position_id) REFERENCES {$wpdb->prefix}hegspots_map_positions (ID),
-    ADD CONSTRAINT {$wpdb->prefix}hegspots_places_type_place_id_foreign FOREIGN KEY (type_place_id) REFERENCES {$wpdb->prefix}hegspots_types_place (ID);
+    ADD CONSTRAINT {$wpdb->prefix}hegspots_places_type_place_id_foreign FOREIGN KEY (type_place_id) REFERENCES {$wpdb->prefix}hegspots_types_place (ID) ON DELETE CASCADE;
   ");
 
   update_option('hegspots_plugin_installed', true);
