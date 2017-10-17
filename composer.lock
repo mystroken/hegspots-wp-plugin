@@ -423,22 +423,71 @@
             "time": "2017-02-06 22:02:47"
         },
         {
+            "name": "paragonie/random_compat",
+            "version": "v2.0.11",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/paragonie/random_compat.git",
+                "reference": "5da4d3c796c275c55f057af5a643ae297d96b4d8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/paragonie/random_compat/zipball/5da4d3c796c275c55f057af5a643ae297d96b4d8",
+                "reference": "5da4d3c796c275c55f057af5a643ae297d96b4d8",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.2.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "4.*|5.*"
+            },
+            "suggest": {
+                "ext-libsodium": "Provides a modern crypto API that can be used to generate random bytes."
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "lib/random.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Paragon Initiative Enterprises",
+                    "email": "security@paragonie.com",
+                    "homepage": "https://paragonie.com"
+                }
+            ],
+            "description": "PHP 5.x polyfill for random_bytes() and random_int() from PHP 7",
+            "keywords": [
+                "csprng",
+                "pseudorandom",
+                "random"
+            ],
+            "time": "2017-09-27T21:40:39+00:00"
+        },
+        {
             "name": "symfony/http-foundation",
             "version": "3.4.x-dev",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/http-foundation.git",
-                "reference": "b7e34ba2eb4d0ac9eb0c2d46b20d9136fde5fa66"
+                "reference": "55ca8d885e7e0790a24ad8b2c9253bdb68035e89"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/http-foundation/zipball/b7e34ba2eb4d0ac9eb0c2d46b20d9136fde5fa66",
-                "reference": "b7e34ba2eb4d0ac9eb0c2d46b20d9136fde5fa66",
+                "url": "https://api.github.com/repos/symfony/http-foundation/zipball/55ca8d885e7e0790a24ad8b2c9253bdb68035e89",
+                "reference": "55ca8d885e7e0790a24ad8b2c9253bdb68035e89",
                 "shasum": ""
             },
             "require": {
                 "php": "^5.5.9|>=7.0.8",
-                "symfony/polyfill-mbstring": "~1.1"
+                "symfony/polyfill-mbstring": "~1.1",
+                "symfony/polyfill-php70": "~1.6"
             },
             "require-dev": {
                 "symfony/expression-language": "~2.8|~3.0|~4.0"
@@ -473,7 +522,7 @@
             ],
             "description": "Symfony HttpFoundation Component",
             "homepage": "https://symfony.com",
-            "time": "2017-08-10 07:07:17"
+            "time": "2017-10-16 22:24:46"
         },
         {
             "name": "symfony/polyfill-mbstring",
@@ -481,12 +530,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-mbstring.git",
-                "reference": "7c8fae0ac1d216eb54349e6a8baa57d515fe8803"
+                "reference": "2ec8b39c38cb16674bbf3fea2b6ce5bf117e1296"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/polyfill-mbstring/zipball/7c8fae0ac1d216eb54349e6a8baa57d515fe8803",
-                "reference": "7c8fae0ac1d216eb54349e6a8baa57d515fe8803",
+                "url": "https://api.github.com/repos/symfony/polyfill-mbstring/zipball/2ec8b39c38cb16674bbf3fea2b6ce5bf117e1296",
+                "reference": "2ec8b39c38cb16674bbf3fea2b6ce5bf117e1296",
                 "shasum": ""
             },
             "require": {
@@ -498,7 +547,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.5-dev"
+                    "dev-master": "1.6-dev"
                 }
             },
             "autoload": {
@@ -532,7 +581,66 @@
                 "portable",
                 "shim"
             ],
-            "time": "2017-06-14 15:44:48"
+            "time": "2017-10-11 12:05:26"
+        },
+        {
+            "name": "symfony/polyfill-php70",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/polyfill-php70.git",
+                "reference": "0442b9c0596610bd24ae7b5f0a6cdbbc16d9fcff"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/polyfill-php70/zipball/0442b9c0596610bd24ae7b5f0a6cdbbc16d9fcff",
+                "reference": "0442b9c0596610bd24ae7b5f0a6cdbbc16d9fcff",
+                "shasum": ""
+            },
+            "require": {
+                "paragonie/random_compat": "~1.0|~2.0",
+                "php": ">=5.3.3"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.6-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Polyfill\\Php70\\": ""
+                },
+                "files": [
+                    "bootstrap.php"
+                ],
+                "classmap": [
+                    "Resources/stubs"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Nicolas Grekas",
+                    "email": "p@tchwork.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony polyfill backporting some PHP 7.0+ features to lower PHP versions",
+            "homepage": "https://symfony.com",
+            "keywords": [
+                "compatibility",
+                "polyfill",
+                "portable",
+                "shim"
+            ],
+            "time": "2017-10-11 12:05:26"
         },
         {
             "name": "symfony/translation",
@@ -540,12 +648,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/translation.git",
-                "reference": "62bb068e004874bbe39624101e1aae70ca7c05cd"
+                "reference": "24110f6b3f3fe5f9caa2a65bd3b8cba5f25be185"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/translation/zipball/62bb068e004874bbe39624101e1aae70ca7c05cd",
-                "reference": "62bb068e004874bbe39624101e1aae70ca7c05cd",
+                "url": "https://api.github.com/repos/symfony/translation/zipball/24110f6b3f3fe5f9caa2a65bd3b8cba5f25be185",
+                "reference": "24110f6b3f3fe5f9caa2a65bd3b8cba5f25be185",
                 "shasum": ""
             },
             "require": {
@@ -555,14 +663,15 @@
             "conflict": {
                 "symfony/config": "<2.8",
                 "symfony/dependency-injection": "<3.4",
-                "symfony/yaml": "<3.3"
+                "symfony/yaml": "<3.4"
             },
             "require-dev": {
                 "psr/log": "~1.0",
                 "symfony/config": "~2.8|~3.0|~4.0",
                 "symfony/dependency-injection": "~3.4|~4.0",
+                "symfony/finder": "~2.8|~3.0|~4.0",
                 "symfony/intl": "^2.8.18|^3.2.5|~4.0",
-                "symfony/yaml": "~3.3|~4.0"
+                "symfony/yaml": "~3.4|~4.0"
             },
             "suggest": {
                 "psr/log": "To use logging capability in translator",
@@ -599,7 +708,7 @@
             ],
             "description": "Symfony Translation Component",
             "homepage": "https://symfony.com",
-            "time": "2017-08-03 12:04:31"
+            "time": "2017-10-13 13:33:47"
         },
         {
             "name": "tareq1988/wp-eloquent",
@@ -652,12 +761,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/vitaminframework/framework.git",
-                "reference": "32666b57c3f48cb948d7779ce172c5628f6b746d"
+                "reference": "65039b4f591462c94c240526ce559193d6794d53"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/vitaminframework/framework/zipball/32666b57c3f48cb948d7779ce172c5628f6b746d",
-                "reference": "32666b57c3f48cb948d7779ce172c5628f6b746d",
+                "url": "https://api.github.com/repos/vitaminframework/framework/zipball/65039b4f591462c94c240526ce559193d6794d53",
+                "reference": "65039b4f591462c94c240526ce559193d6794d53",
                 "shasum": ""
             },
             "require": {
@@ -701,7 +810,7 @@
                 "wordpress",
                 "wordpress-development"
             ],
-            "time": "2017-09-06 05:11:53"
+            "time": "2017-09-28 19:33:20"
         },
         {
             "name": "wordpruss/contracts",
@@ -755,12 +864,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/wordpruss/notices.git",
-                "reference": "009b577340b1fc321e326ccf5ace009ca6783fa6"
+                "reference": "a9278a1e4720eaaa530be671d1fc65bb2c37f3d4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wordpruss/notices/zipball/009b577340b1fc321e326ccf5ace009ca6783fa6",
-                "reference": "009b577340b1fc321e326ccf5ace009ca6783fa6",
+                "url": "https://api.github.com/repos/wordpruss/notices/zipball/a9278a1e4720eaaa530be671d1fc65bb2c37f3d4",
+                "reference": "a9278a1e4720eaaa530be671d1fc65bb2c37f3d4",
                 "shasum": ""
             },
             "require": {
@@ -799,7 +908,7 @@
                 "wordpress",
                 "wordpress-development"
             ],
-            "time": "2017-09-06 05:32:10"
+            "time": "2017-09-06 05:48:45"
         },
         {
             "name": "wordpruss/shortcodes",

@@ -7,12 +7,13 @@ function initialize() {
   var
     inputLng = document.getElementById('map__lng'),
     inputLat = document.getElementById('map__lat'),
-    initialPosition = { lat: inputLat.value, lng: inputLng.value }
+    initialPosition = { lat: parseFloat(inputLat.value), lng: parseFloat(inputLng.value) }
   ;
 
   map = new google.maps.Map(document.getElementById('map'), {
     zoom: 12,
-    center: initialPosition
+    center: initialPosition,
+    mapTypeId: 'roadmap'
   });
 
   // This event listener calls addMarker() when the map is clicked.
