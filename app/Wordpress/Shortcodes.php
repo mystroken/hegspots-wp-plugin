@@ -7,6 +7,7 @@ use App\Models\TypePlace;
 use App\Models\Member;
 use App\Models\Location;
 use App\Models\Options;
+use App\Support\Instagram;
 
 
 // Shortcodes
@@ -92,6 +93,12 @@ $placesShortcode->handle(function($atts, $content) use ($app, $request, $view) {
 		if( $place )
 		{
 			$nearbyPlaces = Place::where('location_id', $place->location->ID)->where('ID', '!=', $place->ID)->orderBy('name', 'desc')->limit(3)->get();
+
+			if( true )
+			{
+				//$instagram = new Instagram;
+				//var_dump($instagram->getUserMedia());
+			}
 
 			$view->load(
 				'front.places_single',

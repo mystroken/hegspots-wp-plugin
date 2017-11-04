@@ -12,7 +12,8 @@
     "require": {
         "wordpruss/wordpruss": "0.x-dev",
         "tareq1988/wp-eloquent": "dev-master",
-        "vitaminframework/framework": "dev-master"
+        "vitaminframework/framework": "dev-master",
+        "cosenary/instagram": "^2.4@dev"
     },
     "authors": [
         {
